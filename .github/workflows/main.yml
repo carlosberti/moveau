@@ -15,13 +15,9 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  "lint_and_test":
-    # The type of runner that the job will run on
+  Build:
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout Repository
         uses: actions/checkout@v2
 
@@ -42,12 +38,6 @@ jobs:
       - name: Test
         run: yarn test:ci
 
-  build:
-
-    needs: lint_and_test
-
-    runs-on: ubuntu-latest
-
-    steps:
       - name: Build
         run: yarn build
+
