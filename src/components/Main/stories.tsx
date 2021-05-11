@@ -8,7 +8,7 @@ export default {
     layout: 'fullscreen'
   },
   args: {
-    title: 'Moveau'
+    title: 'Moveau test ci'
   }
 } as Meta
 
