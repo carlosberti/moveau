@@ -44,7 +44,10 @@ jobs:
 
   build:
 
-    needs: job1
+    needs: lint_and_test
 
-    - name: Build
-      run: yarn build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Build
+        run: yarn build
