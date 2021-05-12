@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react'
 import MovieCard from '.'
 
 const props = {
-  img: '/assets/img/aladdin.jpeg',
+  img: '/any_path',
   name: 'Aladdin'
 }
 
@@ -14,7 +14,7 @@ describe('<MovieCard />', () => {
     const img = screen.getByRole('img', { name: 'Aladdin' })
 
     expect(img).toBeInTheDocument()
-    expect(img).toHaveAttribute('src', '/assets/img/aladdin.jpeg')
+    expect(img).toHaveAttribute('src', '/any_path')
     expect(screen.getByText(/aladdin/i)).toBeInTheDocument()
   })
 })

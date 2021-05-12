@@ -26,8 +26,8 @@ export const Wrapper = styled.div`
     transform: scale(1.1);
 
     > img {
-      border: none;
-      box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.75);
+      border: 0.1rem solid #ffffff;
+      box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.75);
     }
 
     > p {
