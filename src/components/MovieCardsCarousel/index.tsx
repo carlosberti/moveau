@@ -7,8 +7,8 @@ export type MovieCardsCarouselProps = {
 
 const MovieCardsCarousel = ({ movies }: MovieCardsCarouselProps) => (
   <s.Wrapper>
-    {movies.map((movie) => (
-      <MovieCard key={movie.img} {...movie} />
+    {movies.map((movie, index) => (
+      <MovieCard key={`${movie.img} - ${index}`} {...movie} />
     ))}
   </s.Wrapper>
 )
