@@ -1,12 +1,14 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.button`
+  display: flex;
+  flex: 1;
+  flex-direction: column;
   border: none;
   text-align: left;
   outline: none;
   background: transparent;
   cursor: pointer;
-  width: fit-content;
   transition: transform 0.3s ease;
   will-change: transform;
 
