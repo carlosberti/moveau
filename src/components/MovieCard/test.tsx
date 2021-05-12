@@ -1,3 +1,4 @@
+import 'next-image.mock'
 import { render, screen } from '@testing-library/react'
 
 import MovieCard from '.'
