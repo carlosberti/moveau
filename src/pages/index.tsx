@@ -1,101 +1,20 @@
-import { Container } from 'components/Container'
-import MovieCardsCarousel from 'components/MovieCardsCarousel'
-import MovieCardsGrid from 'components/MovieCardsGrid'
+import { getHomeMovies } from 'client'
+import HomeTemplate, { HomeTemplateProps } from 'templates/Home'
 
-const props = {
-  movies: [
-    {
-      img: '/assets/img/aladdin.jpeg',
-      name: 'Aladdin s.dkjf jasdf ljasd flajsdhf jklasd fjkalsdhf asnkdf aksjldf lasjkdf jkasd fklasdf aljsd '
-    },
-    {
-      img: '/assets/img/aladdin.jpeg',
-      name: 'Aladdin'
-    },
-    {
-      img: '/assets/img/aladdin.jpeg',
-      name: 'Aladdin'
-    },
-    {
-      img: '/assets/img/aladdin.jpeg',
-      name: 'Aladdin'
-    },
-    {
-      img: '/assets/img/aladdin.jpeg',
-      name: 'Aladdin'
-    },
-    {
-      img: '/assets/img/aladdin.jpeg',
-      name: 'Aladdin'
-    },
-    {
-      img: '/assets/img/aladdin.jpeg',
-      name: 'Aladdin'
-    },
-    {
-      img: '/assets/img/aladdin.jpeg',
-      name: 'Aladdin'
-    },
-    {
-      img: '/assets/img/aladdin.jpeg',
-      name: 'Aladdin'
-    },
-    {
-      img: '/assets/img/aladdin.jpeg',
-      name: 'Aladdin'
-    },
-    {
-      img: '/assets/img/aladdin.jpeg',
-      name: 'Aladdin'
-    },
-    {
-      img: '/assets/img/aladdin.jpeg',
-      name: 'Aladdin'
-    },
-    {
-      img: '/assets/img/aladdin.jpeg',
-      name: 'Aladdin'
-    },
-    {
-      img: '/assets/img/aladdin.jpeg',
-      name: 'Aladdin'
-    },
-    {
-      img: '/assets/img/aladdin.jpeg',
-      name: 'Aladdin'
-    },
-    {
-      img: '/assets/img/aladdin.jpeg',
-      name: 'Aladdin'
-    },
-    {
-      img: '/assets/img/aladdin.jpeg',
-      name: 'Aladdin'
-    },
-    {
-      img: '/assets/img/aladdin.jpeg',
-      name: 'Aladdin'
-    },
-    {
-      img: '/assets/img/aladdin.jpeg',
-      name: 'Aladdin'
-    },
-    {
-      img: '/assets/img/aladdin.jpeg',
-      name: 'Aladdin'
-    },
-    {
-      img: '/assets/img/aladdin.jpeg',
-      name: 'Aladdin'
-    }
-  ]
+export default function Home(props: HomeTemplateProps) {
+  return <HomeTemplate {...props} />
 }
 
-export default function Home() {
-  return (
-    <Container>
-      <MovieCardsGrid {...props} />
-      <MovieCardsCarousel {...props} />
-    </Container>
-  )
+export const getStaticProps = async () => {
+  const movies = await getHomeMovies()
+
+  return {
+    revalidate: 21600,
+    props: {
+      movies: movies.map((movie) => ({
+        img: `https://image.tmdb.org/t/p/w300/${movie.poster_path}`,
+        name: movie.original_title
+      }))
+    }
+  }
 }
