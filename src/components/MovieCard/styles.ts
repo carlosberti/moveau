@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 export const Wrapper = styled.button`
   display: flex;
-  flex: 1;
   flex-direction: column;
   border: none;
   text-align: left;
@@ -11,7 +10,7 @@ export const Wrapper = styled.button`
   cursor: pointer;
   transition: transform 0.3s ease;
   will-change: transform;
-  width: fit-content;
+  min-width: fit-content;
 
   > img {
     border: 0.1rem solid #606a6b;
@@ -30,6 +29,7 @@ export const Wrapper = styled.button`
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    max-width: fit-content;
   }
 
   &:hover,
