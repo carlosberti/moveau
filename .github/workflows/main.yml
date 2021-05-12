@@ -40,4 +40,6 @@ jobs:
 
       - name: Build
         run: yarn build
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
 
