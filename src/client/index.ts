@@ -4,7 +4,7 @@ const BASE_MOVIE_URL = 'https://api.themoviedb.org/3/movie'
 
 const config = {
   headers: {
-    Authorization: `Bearer ${process.env.TOKEN}`,
+    Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
     'Content-Type': 'application/json;charset=utf-8'
   }
 }
