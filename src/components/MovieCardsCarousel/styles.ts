@@ -11,8 +11,4 @@ export const Wrapper = styled.section`
   ::-webkit-scrollbar {
     display: none;
   } */
-
-  > button:last-of-type {
-    padding-right: 2.4rem;
-  }
 `
