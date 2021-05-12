@@ -1,5 +1,6 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
 import MovieCardsGrid, { MovieCardsGridProps } from '.'
+import { movies } from './mocks'
 
 export default {
   title: 'MovieCardsGrid',
@@ -11,104 +12,7 @@ export default {
     }
   },
   args: {
-    movies: [
-      {
-        img: '/assets/img/aladdin.jpeg',
-        name: 'Aladdin asdkfbkasjldf lsahdf asjdhf asj '
-      },
-      {
-        img: '/assets/img/aladdin.jpeg',
-        name: 'Aladdin'
-      },
-      {
-        img: '/assets/img/aladdin.jpeg',
-        name: 'Aladdin'
-      },
-      {
-        img: '/assets/img/aladdin.jpeg',
-        name: 'Aladdin'
-      },
-      {
-        img: '/assets/img/aladdin.jpeg',
-        name: 'Aladdin'
-      },
-      {
-        img: '/assets/img/aladdin.jpeg',
-        name: 'Aladdin'
-      },
-      {
-        img: '/assets/img/aladdin.jpeg',
-        name: 'Aladdin'
-      },
-      {
-        img: '/assets/img/aladdin.jpeg',
-        name: 'Aladdin'
-      },
-      {
-        img: '/assets/img/aladdin.jpeg',
-        name: 'Aladdin'
-      },
-      {
-        img: '/assets/img/aladdin.jpeg',
-        name: 'Aladdin'
-      },
-      {
-        img: '/assets/img/aladdin.jpeg',
-        name: 'Aladdin'
-      },
-      {
-        img: '/assets/img/aladdin.jpeg',
-        name: 'Aladdin'
-      },
-      {
-        img: '/assets/img/aladdin.jpeg',
-        name: 'Aladdin'
-      },
-      {
-        img: '/assets/img/aladdin.jpeg',
-        name: 'Aladdin'
-      },
-      {
-        img: '/assets/img/aladdin.jpeg',
-        name: 'Aladdin'
-      },
-      {
-        img: '/assets/img/aladdin.jpeg',
-        name: 'Aladdin'
-      },
-      {
-        img: '/assets/img/aladdin.jpeg',
-        name: 'Aladdin'
-      },
-      {
-        img: '/assets/img/aladdin.jpeg',
-        name: 'Aladdin'
-      },
-      {
-        img: '/assets/img/aladdin.jpeg',
-        name: 'Aladdin'
-      },
-      {
-        img: '/assets/img/aladdin.jpeg',
-        name: 'Aladdin'
-      },
-      {
-        img: '/assets/img/aladdin.jpeg',
-        name: 'Aladdin'
-      },
-      {
-        img: '/assets/img/aladdin.jpeg',
-        name: 'Aladdin'
-      },
-      {
-        img: '/assets/img/aladdin.jpeg',
-        name: 'Aladdin'
-      },
-      {
-        img: '/assets/img/aladdin.jpeg',
-        name: 'Aladdin'
-      }
-    ]
+    movies
   }
 } as Meta
 

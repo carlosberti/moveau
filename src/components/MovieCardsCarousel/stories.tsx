@@ -1,5 +1,6 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
 import MovieCardsCarousel, { MovieCardsCarouselProps } from '.'
+import { movies } from './mock'
 
 export default {
   title: 'MovieCardsCarousel',
@@ -11,56 +12,7 @@ export default {
     }
   },
   args: {
-    movies: [
-      {
-        img: '/assets/img/aladdin.jpeg',
-        name: 'Aladdin'
-      },
-      {
-        img: '/assets/img/aladdin.jpeg',
-        name: 'Aladdin'
-      },
-      {
-        img: '/assets/img/aladdin.jpeg',
-        name: 'Aladdin'
-      },
-      {
-        img: '/assets/img/aladdin.jpeg',
-        name: 'Aladdin'
-      },
-      {
-        img: '/assets/img/aladdin.jpeg',
-        name: 'Aladdin'
-      },
-      {
-        img: '/assets/img/aladdin.jpeg',
-        name: 'Aladdin'
-      },
-      {
-        img: '/assets/img/aladdin.jpeg',
-        name: 'Aladdin'
-      },
-      {
-        img: '/assets/img/aladdin.jpeg',
-        name: 'Aladdin'
-      },
-      {
-        img: '/assets/img/aladdin.jpeg',
-        name: 'Aladdin'
-      },
-      {
-        img: '/assets/img/aladdin.jpeg',
-        name: 'Aladdin'
-      },
-      {
-        img: '/assets/img/aladdin.jpeg',
-        name: 'Aladdin'
-      },
-      {
-        img: '/assets/img/aladdin.jpeg',
-        name: 'Aladdin'
-      }
-    ]
+    movies
   }
 } as Meta
 
