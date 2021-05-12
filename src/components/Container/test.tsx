@@ -5,11 +5,11 @@ describe('<Container />', () => {
   it('should render correctly', () => {
     const { container } = render(
       <Container>
-        <span>Moveau</span>
+        <span>movieau</span>
       </Container>
     )
 
-    expect(screen.getByText(/moveau/i)).toBeInTheDocument()
+    expect(screen.getByText(/movieau/i)).toBeInTheDocument()
     expect(container.firstChild).toMatchInlineSnapshot(`
       .c0 {
         width: 100%;
@@ -38,7 +38,7 @@ describe('<Container />', () => {
         class="c0"
       >
         <span>
-          Moveau
+          movieau
         </span>
       </div>
     `)

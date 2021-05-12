@@ -10,7 +10,7 @@ function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Moveau</title>
+        <title>movieau</title>
         <meta
           name="description"
           content="A simple project made to search for movies"

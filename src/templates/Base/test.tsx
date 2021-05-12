@@ -6,10 +6,12 @@ describe('<Base />', () => {
   it('should render correctly', () => {
     render(
       <Base>
-        <h1>moveau</h1>
+        <h1>movieau</h1>
       </Base>
     )
 
-    expect(screen.getByRole('heading', { name: /moveau/i })).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: /movieau/i })
+    ).toBeInTheDocument()
   })
 })
