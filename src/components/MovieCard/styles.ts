@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const Wrapper = styled.button`
   border: none;
   text-align: left;
+  outline: none;
   background: transparent;
   cursor: pointer;
   width: fit-content;
