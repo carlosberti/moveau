@@ -13,6 +13,7 @@ type HomeMoviesResponse = {
   id: string
   original_title: string
   poster_path: string
+  overview: string
 }
 
 type HomeMoviesData = {
