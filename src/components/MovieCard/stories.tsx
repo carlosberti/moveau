@@ -11,6 +11,7 @@ export default {
     }
   },
   args: {
+    id: '278',
     img: '/assets/img/aladdin.jpeg',
     name: 'Aladdin'
   }
