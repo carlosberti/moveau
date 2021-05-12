@@ -15,8 +15,40 @@ type HomeMoviesResponse = {
   poster_path: string
 }
 
+type HomeMoviesData = {
+  results: HomeMoviesResponse[]
+}
+
 export const getHomeMovies = async (): Promise<HomeMoviesResponse[]> => {
-  const response = await axios.get(`${BASE_MOVIE_URL}/popular`, config)
+  const response = await axios.get<HomeMoviesData>(
+    `${BASE_MOVIE_URL}/popular`,
+    config
+  )
+
+  return response.data.results
+}
+
+type VideosProps = {
+  id: string
+}
+
+type VideosResponse = {
+  key: string
+  site: string
+  type: string
+}
+
+type VideosData = {
+  results: VideosResponse[]
+}
+
+export const getVideos = async ({
+  id
+}: VideosProps): Promise<VideosResponse[]> => {
+  const response = await axios.get<VideosData>(
+    `${BASE_MOVIE_URL}/${id}/videos`,
+    config
+  )
 
   return response.data.results
 }
