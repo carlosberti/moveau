@@ -10,6 +10,7 @@ const config = {
 }
 
 type HomeMoviesResponse = {
+  id: string
   original_title: string
   poster_path: string
 }
