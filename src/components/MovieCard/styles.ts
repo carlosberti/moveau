@@ -20,11 +20,15 @@ export const Wrapper = styled.button`
   }
 
   > p {
+    display: -webkit-box;
     transition: color 0.3s ease;
     margin-top: 1.6rem;
     font-size: 1.6rem;
     color: #606a6b;
     will-change: color;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   &:hover,
