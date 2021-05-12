@@ -8,7 +8,7 @@ export const Wrapper = styled.section`
   align-items: start;
   justify-content: space-between;
 
-  @media screen and (min-width: 768px) {
-    /* grid-column-gap: 2.4rem; */
+  @media screen and (min-width: 1024px) {
+    grid-column-gap: 5rem;
   }
 `
