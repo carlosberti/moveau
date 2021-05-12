@@ -6,9 +6,9 @@ export const Wrapper = styled.section`
   grid-column-gap: 1.6rem;
   grid-row-gap: 2.4rem;
   align-items: start;
-  justify-content: center;
+  justify-content: space-between;
 
   @media screen and (min-width: 768px) {
-    grid-column-gap: 2.4rem;
+    /* grid-column-gap: 2.4rem; */
   }
 `
