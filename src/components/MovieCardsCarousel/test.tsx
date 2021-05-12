@@ -14,14 +14,17 @@ jest.mock('components/MovieCard', () => {
 const props = {
   movies: [
     {
+      id: '1',
       img: '/any_path1',
       name: 'any_name'
     },
     {
+      id: '1',
       img: '/any_path2',
       name: 'any_name'
     },
     {
+      id: '1',
       img: '/any_path3',
       name: 'any_name'
     }

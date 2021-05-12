@@ -4,6 +4,7 @@ import { render, screen } from '@testing-library/react'
 import MovieCard from '.'
 
 const props = {
+  id: '1',
   img: '/any_path',
   name: 'Aladdin'
 }
