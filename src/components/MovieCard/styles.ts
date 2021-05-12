@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.button`
+  border: none;
+  text-align: left;
   background: transparent;
   cursor: pointer;
   width: fit-content;
@@ -22,7 +24,8 @@ export const Wrapper = styled.div`
     will-change: color;
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     transform: scale(1.1);
 
     > img {

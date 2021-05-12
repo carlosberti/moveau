@@ -15,7 +15,7 @@ const MovieCard = ({
   width = 187,
   height = 268
 }: MovieCardProps) => (
-  <s.Wrapper role="button">
+  <s.Wrapper>
     <img src={img} alt={name} width={width} height={height} />
     <p>{name}</p>
   </s.Wrapper>
