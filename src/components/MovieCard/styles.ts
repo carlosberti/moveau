@@ -11,6 +11,7 @@ export const Wrapper = styled.button`
   cursor: pointer;
   transition: transform 0.3s ease;
   will-change: transform;
+  width: fit-content;
 
   > img {
     border: 0.1rem solid #606a6b;

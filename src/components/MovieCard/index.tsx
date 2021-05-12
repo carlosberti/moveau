@@ -1,4 +1,4 @@
-// import Image from 'next/image'
+import Image from 'next/image'
 
 import * as s from './styles'
 
@@ -12,11 +12,11 @@ export type MovieCardProps = {
 const MovieCard = ({
   img,
   name,
-  width = 187,
-  height = 268
+  width = 131,
+  height = 188
 }: MovieCardProps) => (
   <s.Wrapper>
-    <img src={img} alt={name} width={width} height={height} />
+    <Image src={img} alt={name} width={width} height={height} />
     <p>{name}</p>
   </s.Wrapper>
 )
