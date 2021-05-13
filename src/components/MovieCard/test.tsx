@@ -6,7 +6,8 @@ import MovieCard from '.'
 const props = {
   id: '1',
   img: '/any_path',
-  name: 'Aladdin'
+  name: 'Aladdin',
+  overview: 'any_overview'
 }
 
 describe('<MovieCard />', () => {

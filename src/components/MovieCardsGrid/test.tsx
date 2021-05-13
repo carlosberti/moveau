@@ -16,17 +16,20 @@ const props = {
     {
       id: '1',
       img: '/any_path',
-      name: 'any_name'
+      name: 'any_name',
+      overview: 'any_overview'
     },
     {
       id: '1',
       img: '/any_path',
-      name: 'any_name'
+      name: 'any_name',
+      overview: 'any_overview'
     },
     {
       id: '1',
       img: '/any_path',
-      name: 'any_name'
+      name: 'any_name',
+      overview: 'any_overview'
     }
   ]
 }
