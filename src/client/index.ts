@@ -9,7 +9,11 @@ const config = {
   }
 }
 
-type HomeMoviesResponse = {
+type HomeMoviesProps = {
+  page: number
+}
+
+export type HomeMoviesResponse = {
   id: string
   original_title: string
   poster_path: string
@@ -20,10 +24,17 @@ type HomeMoviesData = {
   results: HomeMoviesResponse[]
 }
 
-export const getHomeMovies = async (): Promise<HomeMoviesResponse[]> => {
+export const getHomeMovies = async ({
+  page
+}: HomeMoviesProps): Promise<HomeMoviesResponse[]> => {
   const response = await axios.get<HomeMoviesData>(
     `${BASE_MOVIE_URL}/popular`,
-    config
+    {
+      ...config,
+      params: {
+        page
+      }
+    }
   )
 
   return response.data.results
