@@ -1,4 +1,4 @@
-import { HomeMoviesResponse } from 'client'
+import { HomeMoviesResponse, MovieDetailsResponse } from 'client'
 
 export const homeMoviesMapper = (movies: HomeMoviesResponse[]) =>
   movies.map((movie) => ({
@@ -7,3 +7,16 @@ export const homeMoviesMapper = (movies: HomeMoviesResponse[]) =>
     name: movie.title,
     overview: movie.overview
   }))
+
+type MovieDetailsMapperProps = {
+  movie: MovieDetailsResponse
+  id: string
+}
+
+export const movieDetailsMapper = ({ id, movie }: MovieDetailsMapperProps) => ({
+  id: id,
+  name: movie.title,
+  overview: movie.overview,
+  images: movie.images,
+  videos: movie.videos
+})
