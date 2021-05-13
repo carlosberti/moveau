@@ -21,6 +21,12 @@ jest.mock('components/MoviePopup', () => {
   }
 })
 
+const mockIntersectionObserver = jest.fn()
+mockIntersectionObserver.mockReturnValue({
+  observe: () => null
+})
+window.IntersectionObserver = mockIntersectionObserver
+
 describe('<Home />', () => {
   it('should render correctly', () => {
     render(<Home movies={movies} />)
