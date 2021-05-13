@@ -4,7 +4,6 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
-  justify-content: space-between;
 `
 
 export const Header = styled.header`
@@ -25,6 +24,5 @@ export const LogoWrapper = styled.div`
 `
 
 export const Content = styled.div`
-  margin-top: 6.4rem;
-  flex: 1 0 auto;
+  margin-top: 3.6rem;
 `
