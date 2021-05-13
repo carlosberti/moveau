@@ -27,8 +27,14 @@ const MoviePopup = () => {
   return (
     <>
       {movie && (
-        <s.Wrapper isOpen={!!movie}>
-          <s.Overlay aria-hidden={!movie} onClick={handleOverlayClick} />
+        <>
+          <s.Overlay
+            aria-hidden={!movie}
+            onClick={handleOverlayClick}
+            aria-label="Click to close"
+            // eslint-disable-next-line jsx-a11y/no-autofocus
+            autoFocus
+          />
           <s.Content aria-hidden={!movie}>
             <s.TopWrapper>
               <s.LeftWrapper>
@@ -39,26 +45,32 @@ const MoviePopup = () => {
                   height={287}
                 />
                 <s.IconsWrapper>
-                  <Star
-                    aria-hidden={false}
-                    focusable={true}
-                    size={20}
-                    role="button"
-                    color={favourite ? 'yellow' : '#eee'}
+                  <button
+                    onClick={handleFavouriteClick}
                     title="Click to favourite"
                     aria-label="Click to favourite"
-                    onClick={handleFavouriteClick}
-                  />
-                  <Tv
-                    aria-hidden={false}
-                    focusable={true}
-                    size={20}
-                    role="button"
-                    color={watchLater ? 'yellow' : '#eee'}
+                  >
+                    <Star
+                      aria-hidden={false}
+                      focusable={true}
+                      size={20}
+                      role="img"
+                      color={favourite ? 'yellow' : '#eee'}
+                    />
+                  </button>
+                  <button
+                    onClick={handleWatchLaterClick}
                     title="Click to watch later"
                     aria-label="Click to watch later"
-                    onClick={handleWatchLaterClick}
-                  />
+                  >
+                    <Tv
+                      aria-hidden={false}
+                      focusable={true}
+                      size={20}
+                      role="img"
+                      color={watchLater ? 'yellow' : '#eee'}
+                    />
+                  </button>
                 </s.IconsWrapper>
               </s.LeftWrapper>
               <s.TextWrapper>
@@ -79,7 +91,7 @@ const MoviePopup = () => {
               ></iframe>
             )}
           </s.Content>
-        </s.Wrapper>
+        </>
       )}
     </>
   )

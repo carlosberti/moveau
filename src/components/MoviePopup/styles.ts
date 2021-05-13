@@ -1,6 +1,8 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
-export const Overlay = styled.div`
+export const Wrapper = styled.div``
+
+export const Overlay = styled.button`
   background: rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
@@ -8,6 +10,8 @@ export const Overlay = styled.div`
   left: 0;
   right: 0;
   z-index: 1;
+  width: 100%;
+  height: 100%;
 `
 
 export const Content = styled.div`
@@ -21,7 +25,8 @@ export const Content = styled.div`
   max-width: 80rem;
   padding: 0.8rem;
   left: 50%;
-  transform: translateX(-50%);
+  top: 50%;
+  transform: translate(-50%, -50%);
   z-index: 10;
 
   > iframe {
@@ -83,10 +88,14 @@ export const IconsWrapper = styled.div`
   justify-content: space-evenly;
   margin-top: 0.8rem;
 
-  > svg {
+  > button {
+    background-color: transparent;
+
     &:hover,
     &:focus {
-      color: yellow;
+      > svg {
+        color: yellow;
+      }
     }
   }
 `
@@ -122,28 +131,4 @@ export const TextWrapper = styled.div`
       font-size: 1.6rem;
     }
   }
-`
-
-const wrapperModifiers = {
-  open: () => css`
-    opacity: 1;
-    pointer-events: auto;
-  `,
-  close: () => css`
-    opacity: 0;
-    pointer-events: none;
-  `
-}
-
-export const Wrapper = styled.div<{ isOpen?: boolean }>`
-  ${({ isOpen }) => css`
-    position: relative;
-
-    ${Content},
-    ${Overlay} {
-      transition: transform 0.2s ease-in, opacity 0.3s ease;
-      ${isOpen && wrapperModifiers.open()}
-      ${!isOpen && wrapperModifiers.close()}
-    }
-  `}
 `

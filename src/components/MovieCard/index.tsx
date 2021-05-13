@@ -42,15 +42,13 @@ const MovieCard = ({
   }
 
   return (
-    <s.Wrapper>
+    <s.Wrapper
+      onClick={handleClick}
+      title="Click to open more infos"
+      aria-label="Click to open more infos"
+    >
       <s.ImageBox>
-        <Image
-          src={img}
-          alt={name}
-          width={width}
-          height={height}
-          onClick={handleClick}
-        />
+        <Image src={img} alt={name} width={width} height={height} />
       </s.ImageBox>
       <p>{name}</p>
     </s.Wrapper>
