@@ -92,9 +92,13 @@ export const IconsWrapper = styled.div`
   > button {
     background-color: transparent;
     cursor: pointer;
+    color: #ffffff;
+    border: none;
 
     &:hover,
     &:focus {
+      color: yellow;
+
       > svg {
         color: yellow;
       }

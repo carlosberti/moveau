@@ -17,7 +17,7 @@ export const Wrapper = styled.button`
     transition: color 0.3s ease;
     margin-top: 1.6rem;
     font-size: 1.6rem;
-    color: #606a6b;
+    color: #9dacad;
     will-change: color;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
