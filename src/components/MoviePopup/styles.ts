@@ -113,6 +113,7 @@ export const TextWrapper = styled.div`
   }
 
   @media screen and (min-width: 768px) {
+    margin-left: 1.8rem;
     > h2 {
       font-size: 2.2rem;
     }
