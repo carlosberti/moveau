@@ -12,6 +12,7 @@ export const Overlay = styled.button`
   z-index: 1;
   width: 100%;
   height: 100%;
+  backdrop-filter: blur(1.2rem);
 `
 
 export const Content = styled.div`
@@ -90,6 +91,7 @@ export const IconsWrapper = styled.div`
 
   > button {
     background-color: transparent;
+    cursor: pointer;
 
     &:hover,
     &:focus {
