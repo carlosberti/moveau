@@ -15,7 +15,7 @@ type HomeMoviesProps = {
 
 export type HomeMoviesResponse = {
   id: string
-  original_title: string
+  title: string
   poster_path: string
   overview: string
 }
@@ -32,7 +32,8 @@ export const getHomeMovies = async ({
     {
       ...config,
       params: {
-        page
+        page,
+        lang: 'en-US'
       }
     }
   )
