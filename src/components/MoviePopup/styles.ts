@@ -11,7 +11,7 @@ export const Overlay = styled.div`
 `
 
 export const Content = styled.div`
-  position: absolute;
+  position: fixed;
   background: purple;
   display: flex;
   flex-direction: column;

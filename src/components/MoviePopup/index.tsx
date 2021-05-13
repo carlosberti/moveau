@@ -20,6 +20,7 @@ const MoviePopup = () => {
   }
 
   const handleOverlayClick = () => {
+    document.querySelector('body')!.style.overflow = 'auto'
     removeMovie()
   }
 

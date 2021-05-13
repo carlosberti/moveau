@@ -37,7 +37,7 @@ const MovieCard = ({
       img,
       video: trailers.length > 0 && trailers[0].key
     }
-
+    document.querySelector('body')!.style.overflow = 'hidden'
     addMovie(movies)
   }
 
