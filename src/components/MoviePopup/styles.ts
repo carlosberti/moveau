@@ -1,19 +1,28 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
-export const Wrapper = styled.div`
+export const Overlay = styled.div`
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+`
+
+export const Content = styled.div`
   position: absolute;
   background: purple;
   display: flex;
   flex-direction: column;
-  flex: 1;
   justify-content: space-between;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  border-radius: 1%;
   width: 90%;
   max-width: 80rem;
-  border-radius: 1%;
   padding: 0.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
 
   > iframe {
     margin-top: 2.4rem;
@@ -39,7 +48,7 @@ export const Wrapper = styled.div`
   }
 `
 
-export const Content = styled.div`
+export const TopWrapper = styled.div`
   display: flex;
 `
 
@@ -50,6 +59,20 @@ export const LeftWrapper = styled.div`
   > img {
     width: 10rem;
     height: 14.4rem;
+  }
+
+  @media screen and (min-width: 500px) {
+    > img {
+      width: 12rem;
+      height: 17.2rem;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    > img {
+      width: 20rem;
+      height: 28.7rem;
+    }
   }
 `
 
@@ -96,4 +119,28 @@ export const TextWrapper = styled.div`
       font-size: 1.6rem;
     }
   }
+`
+
+const wrapperModifiers = {
+  open: () => css`
+    opacity: 1;
+    pointer-events: auto;
+  `,
+  close: () => css`
+    opacity: 0;
+    pointer-events: none;
+  `
+}
+
+export const Wrapper = styled.div<{ isOpen?: boolean }>`
+  ${({ isOpen }) => css`
+    position: relative;
+
+    ${Content},
+    ${Overlay} {
+      transition: transform 0.2s ease-in, opacity 0.3s ease;
+      ${isOpen && wrapperModifiers.open()}
+      ${!isOpen && wrapperModifiers.close()}
+    }
+  `}
 `
