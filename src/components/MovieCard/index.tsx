@@ -43,13 +43,15 @@ const MovieCard = ({
 
   return (
     <s.Wrapper>
-      <Image
-        src={img}
-        alt={name}
-        width={width}
-        height={height}
-        onClick={handleClick}
-      />
+      <s.ImageBox>
+        <Image
+          src={img}
+          alt={name}
+          width={width}
+          height={height}
+          onClick={handleClick}
+        />
+      </s.ImageBox>
       <p>{name}</p>
     </s.Wrapper>
   )

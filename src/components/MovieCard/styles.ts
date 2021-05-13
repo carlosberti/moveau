@@ -12,13 +12,6 @@ export const Wrapper = styled.button`
   will-change: transform;
   min-width: fit-content;
 
-  > img {
-    border: 0.1rem solid #606a6b;
-    transition: all 0.3s ease;
-    will-change: border, box-shadow;
-    box-shadow: none;
-  }
-
   > p {
     display: -webkit-box;
     transition: color 0.3s ease;
@@ -36,13 +29,48 @@ export const Wrapper = styled.button`
   &:focus {
     transform: scale(1.1);
 
+    > p {
+      color: #ffffff;
+    }
+  }
+`
+
+export const ImageBox = styled.div`
+  background-color: #f6f7f8;
+  background-image: linear-gradient(
+    to right,
+    #f6f7f8 0%,
+    #edeef1 25%,
+    #f6f7f8 40%,
+    #f6f7f8 100%
+  );
+  height: 188px;
+  animation: placeolderShimmer 3s linear infinite forwards;
+
+  > img {
+    border: 0.1rem solid #606a6b;
+    transition: all 0.3s ease;
+    will-change: border, box-shadow;
+    box-shadow: none;
+  }
+
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+
     > img {
       border: 0.1rem solid #ffffff;
       box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.75);
     }
+  }
 
-    > p {
-      color: #ffffff;
+  @keyframes placeolderShimmer {
+    0% {
+      background-position: -40rem 0;
+    }
+
+    100% {
+      background-position: 40rem 0;
     }
   }
 `
