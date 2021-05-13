@@ -65,3 +65,55 @@ export const getVideos = async ({
 
   return response.data.results
 }
+
+type MovieDetailsProps = {
+  id: string
+}
+
+type MovieDetails = {
+  title: string
+  overview: string
+}
+
+type Images = {
+  backdrops: {
+    path: string
+  }[]
+}
+
+type ImagesResponse = {
+  [path: string]: string
+}
+
+export type MovieDetailsResponse = MovieDetails & {
+  images: ImagesResponse[]
+  videos: VideosResponse[]
+}
+
+export const getMovieDetails = async ({
+  id
+}: MovieDetailsProps): Promise<MovieDetailsResponse | undefined> => {
+  const [details, images, videos] = await Promise.allSettled([
+    axios.get<MovieDetails>(`${BASE_MOVIE_URL}/${id}`, config),
+    axios.get<Images>(`${BASE_MOVIE_URL}/${id}/images`, config),
+    axios.get<VideosData>(`${BASE_MOVIE_URL}/${id}/videos`, config)
+  ])
+
+  if (details.status === 'rejected') {
+    return undefined
+  }
+
+  const movieDetails = details.value.data
+  const movieImages =
+    images.status === 'fulfilled' ? images.value.data.backdrops : []
+  const movieVideos =
+    videos.status === 'fulfilled' ? videos.value.data.results : []
+
+  const movie = {
+    ...movieDetails,
+    images: [...movieImages],
+    videos: [...movieVideos]
+  }
+
+  return movie
+}
