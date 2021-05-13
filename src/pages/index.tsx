@@ -1,22 +1,18 @@
 import { getHomeMovies } from 'client'
 import HomeTemplate, { HomeTemplateProps } from 'templates/Home'
+import { homeMoviesMapper } from 'utils/mappers'
 
 export default function Home(props: HomeTemplateProps) {
   return <HomeTemplate {...props} />
 }
 
 export const getStaticProps = async () => {
-  const movies = await getHomeMovies()
+  const movies = await getHomeMovies({ page: 1 })
 
   return {
     revalidate: 21600,
     props: {
-      movies: movies.map((movie) => ({
-        id: movie.id,
-        img: `https://image.tmdb.org/t/p/w300/${movie.poster_path}`,
-        name: movie.original_title,
-        overview: movie.overview
-      }))
+      movies: homeMoviesMapper(movies)
     }
   }
 }
