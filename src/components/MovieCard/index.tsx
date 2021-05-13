@@ -22,6 +22,7 @@ const MovieCard = ({
   height = 188
 }: MovieCardProps) => {
   const addMovie = useMovieStore((state) => state.addMovie)
+  const movie = useMovieStore((state) => state.movie)
 
   const handleClick = async () => {
     const response = await getVideos({ id })
@@ -46,6 +47,7 @@ const MovieCard = ({
       onClick={handleClick}
       title="Click to open more infos"
       aria-label="Click to open more infos"
+      tabIndex={movie ? -1 : 0}
     >
       <s.ImageBox>
         <Image src={img} alt={name} width={width} height={height} />
