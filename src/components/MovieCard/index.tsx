@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import { useMovieStore } from 'store'
+import { MoviePopupProps, useMovieStore } from 'store'
 import { getVideos } from 'client'
 import * as s from './styles'
 
@@ -30,7 +30,7 @@ const MovieCard = ({
       (video) => video.type.match(/trailer/i) && video.site.match(/youtube/i)
     )
 
-    const movies = {
+    const movies: MoviePopupProps = {
       overview,
       id,
       name,

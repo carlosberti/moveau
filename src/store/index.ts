@@ -1,6 +1,12 @@
 import create from 'zustand'
 
-import { MoviePopupProps } from 'components/MoviePopup'
+export type MoviePopupProps = {
+  img: string
+  name: string
+  overview: string
+  video: string | false
+  id: string
+}
 
 type MovieStore = {
   movie: undefined | MoviePopupProps
