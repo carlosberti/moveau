@@ -16,8 +16,8 @@ describe('<Container />', () => {
         max-width: 138rem;
         margin-left: auto;
         margin-right: auto;
-        padding-left: 1.2rem;
-        padding-right: 1.2rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
       }
 
       @media screen and (min-width:768px) {
