@@ -9,9 +9,19 @@ export const Wrapper = styled.div`
 
 export const Header = styled.header`
   width: 100%;
-  padding: 1.2rem;
-  background-color: #eee;
-  font-size: 2.4rem;
+  padding-top: 1.8rem;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 2.4rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    padding-top: 3.6rem;
+  }
+`
+
+export const LogoWrapper = styled.div`
+  width: 16rem;
 `
 
 export const Content = styled.div`
