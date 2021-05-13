@@ -12,7 +12,7 @@ export const Overlay = styled.div`
 
 export const Content = styled.div`
   position: fixed;
-  background: purple;
+  background-color: #1d1e26;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -29,6 +29,7 @@ export const Content = styled.div`
     align-self: center;
     width: 100%;
     height: 22rem;
+    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.75);
   }
 
   @media screen and (min-width: 500px) {
@@ -59,6 +60,7 @@ export const LeftWrapper = styled.div`
   > img {
     width: 10rem;
     height: 14.4rem;
+    box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.75);
   }
 
   @media screen and (min-width: 500px) {
