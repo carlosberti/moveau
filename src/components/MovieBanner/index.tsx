@@ -11,20 +11,22 @@ const MovieBanner = ({ path, name }: MovieBannerProps) => {
 
   return (
     <s.Wrapper>
-      {isImg() ? (
-        <Image src={path} width={1000} height={562} alt={name} />
-      ) : (
-        <iframe
-          width="1000"
-          height="562"
-          src={`https://www.youtube.com/embed/${path}`}
-          title="Movie video"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          aria-label={name}
-        ></iframe>
-      )}
+      <div>
+        {isImg() ? (
+          <Image src={path} width={676} height={380} alt={name} />
+        ) : (
+          <iframe
+            width="676"
+            height="380"
+            src={`https://www.youtube.com/embed/${path}`}
+            title="Movie video"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            aria-label={name}
+          ></iframe>
+        )}
+      </div>
     </s.Wrapper>
   )
 }
