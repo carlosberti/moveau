@@ -39,6 +39,8 @@ export const Content = styled.div`
       width: 100%;
       height: 22rem;
       box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.75);
+      border: 0.1rem solid;
+      border-image: ${theme.colors.border.wallpaper};
     }
 
     @media screen and (min-width: 500px) {
@@ -64,28 +66,32 @@ export const TopWrapper = styled.div`
 `
 
 export const LeftWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
 
-  > img {
-    width: 10rem;
-    height: 14.4rem;
-    box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.75);
-  }
-
-  @media screen and (min-width: 500px) {
     > img {
-      width: 12rem;
-      height: 17.2rem;
+      width: 10rem;
+      height: 14.4rem;
+      box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.75);
+      border: 0.1rem solid;
+      border-image: ${theme.colors.border.wallpaper};
     }
-  }
 
-  @media screen and (min-width: 768px) {
-    > img {
-      width: 20rem;
-      height: 28.7rem;
+    @media screen and (min-width: 500px) {
+      > img {
+        width: 12rem;
+        height: 17.2rem;
+      }
     }
-  }
+
+    @media screen and (min-width: 768px) {
+      > img {
+        width: 20rem;
+        height: 28.7rem;
+      }
+    }
+  `}
 `
 
 export const IconsWrapper = styled.div`
