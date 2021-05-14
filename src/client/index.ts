@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-const BASE_MOVIE_URL = 'https://api.themoviedb.org/3/movie'
+export const BASE_MOVIE_URL = 'https://api.themoviedb.org/3/movie'
+export const BASE_SEARCH_URL = 'https://api.themoviedb.org/3/search/movie'
 
 const config = {
   headers: {
@@ -116,4 +117,37 @@ export const getMovieDetails = async ({
   }
 
   return movie
+}
+
+type SearchMoviesProps = {
+  query: string
+  page: number
+}
+
+export type SearchMoviesResponse = {
+  id: string
+  title: string
+  poster_path: string
+  overview: string
+}
+
+type SearchMoviesData = {
+  results: SearchMoviesResponse[]
+  total_pages: number
+}
+
+export const getSearchMovies = async ({
+  query,
+  page
+}: SearchMoviesProps): Promise<SearchMoviesData> => {
+  const response = await axios.get<SearchMoviesData>(`${BASE_SEARCH_URL}`, {
+    ...config,
+    params: {
+      query,
+      page,
+      lang: 'en-US'
+    }
+  })
+
+  return response.data
 }
