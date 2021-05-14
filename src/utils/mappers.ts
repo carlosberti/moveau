@@ -3,7 +3,9 @@ import { HomeMoviesResponse, MovieDetailsResponse } from 'client'
 export const homeMoviesMapper = (movies: HomeMoviesResponse[]) =>
   movies.map((movie) => ({
     id: movie.id,
-    img: `https://image.tmdb.org/t/p/w300/${movie.poster_path}`,
+    img: movie.poster_path
+      ? `https://image.tmdb.org/t/p/w300/${movie.poster_path}`
+      : '/assets/img/not-found.jpg',
     name: movie.title,
     overview: movie.overview
   }))
