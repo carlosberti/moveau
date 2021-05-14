@@ -24,7 +24,6 @@ export const Content = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border-radius: 1%;
     width: 90%;
     max-width: 80rem;
     padding: 0.8rem;
@@ -32,6 +31,8 @@ export const Content = styled.div`
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: ${theme.layers.alwaysOnTop};
+    border: 0.1rem solid;
+    border-image: ${theme.colors.border.poster};
 
     > iframe {
       margin-top: 2.4rem;
