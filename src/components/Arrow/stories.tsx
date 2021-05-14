@@ -14,5 +14,5 @@ export const Default: Story<ArrowProps> = (args) => <Arrow {...args} />
 export const HideWatch: Story<ArrowProps> = (args) => <Arrow {...args} />
 
 HideWatch.args = {
-  hideWatch: true
+  hideClock: true
 }
