@@ -11,14 +11,12 @@ const MoviePopup = () => {
   const movie = useMovieStore((state) => state.movie)
   const removeMovie = useMovieStore((state) => state.removeMovie)
   const addFavourite = useFavouriteStore((state) => state.addFavourite)
-  const favourites = useFavouriteStore((state) => state.favourites)
+  // const favourites = useFavouriteStore((state) => state.favourites)
 
   const handleFavouriteClick = () => {
     addFavourite({ id: '1w121', name: 'sdfsadf', img: 'sadfsdfsf' })
     setFavourite(!favourite)
   }
-
-  console.log(favourites)
 
   const handleWatchLaterClick = () => {
     setWatchLater(!watchLater)
