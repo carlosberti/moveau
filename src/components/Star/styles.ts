@@ -1,7 +1,11 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+import { StarProps } from '.'
 
-export const Wrapper = styled.div`
-  display: flex;
-  width: 3.2rem;
-  height: 3.2rem;
+export const Wrapper = styled.div<StarProps>`
+  ${({ theme, fill }) => css`
+    display: flex;
+    > svg {
+      fill: ${fill ? theme.colors.purple : 'none'};
+    }
+  `}
 `
