@@ -19,3 +19,22 @@ export const useMovieStore = create<MovieStore>((set) => ({
   addMovie: (movie: MoviePopupProps) => set({ movie }),
   removeMovie: () => set({ movie: undefined })
 }))
+
+type Movie = {
+  id: string
+  name: string
+  img: string
+}
+
+type FavouriteStore = {
+  favourites: [] | Movie[]
+  addFavourite: (favourite: Movie) => void
+}
+
+export const useFavouriteStore = create<FavouriteStore>((set, get) => ({
+  favourites: [],
+  addFavourite: (favourite: Movie) => {
+    const { favourites } = get()
+    set({ favourites: [...favourites, favourite] })
+  }
+}))

@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled, { css, DefaultTheme } from 'styled-components'
 
 export const Wrapper = styled.div``
 
@@ -94,8 +94,30 @@ export const LeftWrapper = styled.div`
   `}
 `
 
-export const IconsWrapper = styled.div`
-  ${({ theme }) => css`
+type IconsWrapper = {
+  watchLater: boolean
+  favourite: boolean
+}
+
+const iconModiffier = {
+  favourite: (theme: DefaultTheme) => css`
+    &:first-of-type {
+      > div > svg {
+        fill: ${theme.colors.purple};
+      }
+    }
+  `,
+  watchLater: (theme: DefaultTheme) => css`
+    &:last-of-type {
+      > div > svg {
+        fill: ${theme.colors.purple};
+      }
+    }
+  `
+}
+
+export const IconsWrapper = styled.div<IconsWrapper>`
+  ${({ theme, favourite, watchLater }) => css`
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -106,6 +128,9 @@ export const IconsWrapper = styled.div`
       cursor: pointer;
       color: ${theme.colors.white};
       border: none;
+
+      ${favourite && iconModiffier.favourite(theme)}
+      ${watchLater && iconModiffier.watchLater(theme)}
 
       width: 1.8rem;
       height: 1.8rem;

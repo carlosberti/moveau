@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 import * as s from './styles'
-import { useMovieStore } from 'store'
+import { useFavouriteStore, useMovieStore } from 'store'
 import Arrow from 'components/Arrow'
 import Star from 'components/Star'
 
@@ -10,10 +10,15 @@ const MoviePopup = () => {
   const [favourite, setFavourite] = useState(false)
   const movie = useMovieStore((state) => state.movie)
   const removeMovie = useMovieStore((state) => state.removeMovie)
+  const addFavourite = useFavouriteStore((state) => state.addFavourite)
+  const favourites = useFavouriteStore((state) => state.favourites)
 
   const handleFavouriteClick = () => {
+    addFavourite({ id: '1w121', name: 'sdfsadf', img: 'sadfsdfsf' })
     setFavourite(!favourite)
   }
+
+  console.log(favourites)
 
   const handleWatchLaterClick = () => {
     setWatchLater(!watchLater)
@@ -44,20 +49,20 @@ const MoviePopup = () => {
                   width={200}
                   height={287}
                 />
-                <s.IconsWrapper>
+                <s.IconsWrapper watchLater={watchLater} favourite={favourite}>
                   <button
                     onClick={handleFavouriteClick}
                     title="Click to favourite"
                     aria-label="Click to favourite"
                   >
-                    <Star fill={favourite} />
+                    <Star />
                   </button>
                   <button
                     onClick={handleWatchLaterClick}
                     title="Click to watch later"
                     aria-label="Click to watch later"
                   >
-                    <Arrow fill={watchLater} />
+                    <Arrow />
                   </button>
                 </s.IconsWrapper>
               </s.LeftWrapper>
