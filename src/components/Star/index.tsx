@@ -1,11 +1,7 @@
 import * as s from './styles'
 
-export type StarProps = {
-  fill?: boolean
-}
-
-const Star = ({ fill }: StarProps) => (
-  <s.Wrapper fill={fill}>
+const Star = () => (
+  <s.Wrapper>
     <svg
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

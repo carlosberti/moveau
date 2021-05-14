@@ -2,11 +2,10 @@ import * as s from './styles'
 
 export type ArrowProps = {
   hideClock?: boolean
-  fill?: boolean
 }
 
-const Arrow = ({ hideClock = false, fill }: ArrowProps) => (
-  <s.Wrapper hideClock={hideClock} fill={fill}>
+const Arrow = ({ hideClock = false }: ArrowProps) => (
+  <s.Wrapper hideClock={hideClock}>
     <svg
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
