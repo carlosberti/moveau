@@ -8,6 +8,7 @@ module.exports = {
     '!src/pages/**/*.tsx',
     '!src/styles/**/*.ts',
     '!src/utils/react-axe.ts',
+    '!src/types/**/*.d.ts',
     '!src/**/mock.ts'
   ],
   setupFilesAfterEnv: ['<rootDir>/.jest/setup.ts'],
