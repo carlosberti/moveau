@@ -1,18 +1,16 @@
 import * as s from './styles'
 
 export type ArrowProps = {
-  label?: string
   hideClock?: boolean
 }
 
-const Arrow = ({ hideClock = false, label = 'Right arrow' }: ArrowProps) => (
+const Arrow = ({ hideClock = false }: ArrowProps) => (
   <s.Wrapper hideClock={hideClock}>
     <svg
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 25 25"
-      role="button"
-      aria-label={label}
+      role="img"
     >
       <path
         d="M1 23.042V2.476c0-.793.834-1.309 1.544-.954l20.568 10.284c.783.391.787 1.506.008 1.904L12.6 19.083 2.535 24A1.067 1.067 0 011 23.042z"
