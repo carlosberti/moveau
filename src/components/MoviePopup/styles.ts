@@ -1,58 +1,62 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Wrapper = styled.div``
 
 export const Overlay = styled.button`
-  background: rgba(0, 0, 0, 0.5);
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  backdrop-filter: blur(1.2rem);
+  ${({ theme }) => css`
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: ${theme.layers.overlay};
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(1.2rem);
+  `}
 `
 
 export const Content = styled.div`
-  position: fixed;
-  background-color: #1d1e26;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border-radius: 1%;
-  width: 90%;
-  max-width: 80rem;
-  padding: 0.8rem;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
+  ${({ theme }) => css`
+    position: fixed;
+    background-color: ${theme.colors.background};
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 1%;
+    width: 90%;
+    max-width: 80rem;
+    padding: 0.8rem;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: ${theme.layers.alwaysOnTop};
 
-  > iframe {
-    margin-top: 2.4rem;
-    align-self: center;
-    width: 100%;
-    height: 22rem;
-    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.75);
-  }
-
-  @media screen and (min-width: 500px) {
-    padding: 1.6rem;
     > iframe {
+      margin-top: 2.4rem;
+      align-self: center;
       width: 100%;
-      height: 30rem;
+      height: 22rem;
+      box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.75);
     }
-  }
 
-  @media screen and (min-width: 768px) {
-    padding: 2.4rem;
-    > iframe {
-      width: 100%;
-      height: 40rem;
+    @media screen and (min-width: 500px) {
+      padding: 1.6rem;
+      > iframe {
+        width: 100%;
+        height: 30rem;
+      }
     }
-  }
+
+    @media screen and (min-width: 768px) {
+      padding: 2.4rem;
+      > iframe {
+        width: 100%;
+        height: 40rem;
+      }
+    }
+  `}
 `
 
 export const TopWrapper = styled.div`
@@ -85,56 +89,60 @@ export const LeftWrapper = styled.div`
 `
 
 export const IconsWrapper = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  margin-top: 0.8rem;
+  ${({ theme }) => css`
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 0.8rem;
 
-  > button {
-    background-color: transparent;
-    cursor: pointer;
-    color: #ffffff;
-    border: none;
+    > button {
+      background-color: transparent;
+      cursor: pointer;
+      color: ${theme.colors.white};
+      border: none;
 
-    &:hover,
-    &:focus {
-      color: yellow;
-
-      > svg {
+      &:hover,
+      &:focus {
         color: yellow;
+
+        > svg {
+          color: yellow;
+        }
       }
     }
-  }
+  `}
 `
 
 export const TextWrapper = styled.div`
-  margin-left: 1.2rem;
-  > h2,
-  > h3 {
-    color: #fff;
-  }
-
-  > h3 {
-    margin-top: 0.8rem;
-  }
-
-  @media screen and (min-width: 500px) {
-    > h2 {
-      font-size: 1.8rem;
+  ${({ theme }) => css`
+    margin-left: 1.2rem;
+    > h2,
+    > h3 {
+      color: ${theme.colors.white};
     }
 
     > h3 {
-      font-size: 1.4rem;
-    }
-  }
-
-  @media screen and (min-width: 768px) {
-    margin-left: 1.8rem;
-    > h2 {
-      font-size: 2.2rem;
+      margin-top: 0.8rem;
     }
 
-    > h3 {
-      font-size: 1.6rem;
+    @media screen and (min-width: 500px) {
+      > h2 {
+        font-size: 1.8rem;
+      }
+
+      > h3 {
+        font-size: 1.4rem;
+      }
     }
-  }
+
+    @media screen and (min-width: 768px) {
+      margin-left: 1.8rem;
+      > h2 {
+        font-size: 2.2rem;
+      }
+
+      > h3 {
+        font-size: 1.6rem;
+      }
+    }
+  `}
 `

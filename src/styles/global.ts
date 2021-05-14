@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, css } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
   * {
@@ -19,11 +19,13 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    background-color: #1d1e26;
+    ${({ theme }) => css`
+      background-color: ${theme.colors.background};
+    `}
   }
 
   button, body {
-    font-family: 'Poppins';
+    font-family: 'Poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif';
   }
 `
 
