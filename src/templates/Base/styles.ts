@@ -1,22 +1,28 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: auto;
 `
 
 export const Header = styled.header`
-  width: 100%;
-  padding-top: 1.8rem;
+  ${({ theme }) => css`
+    width: 100%;
+    padding: 1.8rem 0;
+    position: sticky;
+    background-color: ${theme.colors.background};
+    z-index: ${theme.layers.base};
+    top: 0;
 
-  @media screen and (min-width: 768px) {
-    padding-top: 2.4rem;
-  }
+    @media screen and (min-width: 768px) {
+      padding: 2.4rem 0;
+    }
 
-  @media screen and (min-width: 1024px) {
-    padding-top: 3.6rem;
-  }
+    @media screen and (min-width: 1024px) {
+      padding: 2.8rem 0;
+    }
+  `}
 `
 
 export const LogoWrapper = styled.div`
@@ -24,5 +30,5 @@ export const LogoWrapper = styled.div`
 `
 
 export const Content = styled.div`
-  margin-top: 3.6rem;
+  margin-top: 1.6rem;
 `
