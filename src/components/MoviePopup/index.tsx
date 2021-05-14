@@ -1,9 +1,9 @@
-import { Star } from '@styled-icons/fa-regular'
-import { Tv } from '@styled-icons/boxicons-regular'
+import { useState } from 'react'
 
 import * as s from './styles'
-import { useState } from 'react'
 import { useMovieStore } from 'store'
+import Arrow from 'components/Arrow'
+import Star from 'components/Star'
 
 const MoviePopup = () => {
   const [watchLater, setWatchLater] = useState(false)
@@ -50,26 +50,14 @@ const MoviePopup = () => {
                     title="Click to favourite"
                     aria-label="Click to favourite"
                   >
-                    <Star
-                      aria-hidden={false}
-                      focusable={true}
-                      size={20}
-                      role="img"
-                      color={favourite ? 'yellow' : '#eee'}
-                    />
+                    <Star fill={favourite} />
                   </button>
                   <button
                     onClick={handleWatchLaterClick}
                     title="Click to watch later"
                     aria-label="Click to watch later"
                   >
-                    <Tv
-                      aria-hidden={false}
-                      focusable={true}
-                      size={20}
-                      role="img"
-                      color={watchLater ? 'yellow' : '#eee'}
-                    />
+                    <Arrow fill={watchLater} />
                   </button>
                 </s.IconsWrapper>
               </s.LeftWrapper>

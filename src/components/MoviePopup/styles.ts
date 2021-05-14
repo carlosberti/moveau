@@ -98,7 +98,8 @@ export const IconsWrapper = styled.div`
   ${({ theme }) => css`
     display: flex;
     justify-content: space-evenly;
-    margin-top: 0.8rem;
+    align-items: center;
+    margin-top: 1.2rem;
 
     > button {
       background-color: transparent;
@@ -106,13 +107,25 @@ export const IconsWrapper = styled.div`
       color: ${theme.colors.white};
       border: none;
 
+      width: 1.8rem;
+      height: 1.8rem;
+
       &:hover,
       &:focus {
         color: yellow;
+      }
+    }
 
-        > svg {
-          color: yellow;
-        }
+    @media screen and (min-width: 768px) {
+      > button {
+        width: 2.4rem;
+        height: 2.4rem;
+      }
+    }
+    @media screen and (min-width: 1024px) {
+      > button {
+        width: 3.2rem;
+        height: 3.2rem;
       }
     }
   `}
