@@ -13,7 +13,7 @@ describe('<Logo />', () => {
     render(<Logo hideOnMobile />)
     expect(screen.getByLabelText(/movieau/i).parentElement).toHaveStyleRule(
       'width',
-      '5.8rem',
+      '4.2rem',
       {
         media: 'screen and (max-width: 600px)'
       }
