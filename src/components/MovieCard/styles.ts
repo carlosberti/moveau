@@ -1,7 +1,8 @@
-import styled, { css } from 'styled-components'
+import styled, { css, DefaultTheme } from 'styled-components'
 
 export const Wrapper = styled.div`
   display: grid;
+  align-items: baseline;
 `
 
 export const Content = styled.button`
@@ -75,14 +76,51 @@ export const ImageBox = styled.div`
   `}
 `
 
-export const IconsWrapper = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  align-self: flex-end;
-  margin-top: 1.6rem;
+type IconsWrapper = {
+  watchLater: boolean
+  favourite: boolean
+}
 
-  > div {
-    width: 2.4rem;
-    height: 2.4rem;
-  }
+const iconModiffier = {
+  favourite: (theme: DefaultTheme) => css`
+    &:first-of-type {
+      > div > svg {
+        fill: ${theme.colors.purple};
+      }
+    }
+  `,
+  watchLater: (theme: DefaultTheme) => css`
+    &:last-of-type {
+      > div > svg {
+        fill: ${theme.colors.purple};
+      }
+    }
+  `
+}
+
+export const IconsWrapper = styled.div<IconsWrapper>`
+  ${({ theme, favourite, watchLater }) => css`
+    display: flex;
+    justify-content: space-evenly;
+    align-self: flex-end;
+    margin-top: 1.6rem;
+
+    > button {
+      background-color: transparent;
+      cursor: pointer;
+      color: ${theme.colors.white};
+      border: none;
+
+      ${favourite && iconModiffier.favourite(theme)}
+      ${watchLater && iconModiffier.watchLater(theme)}
+
+      width: 2.4rem;
+      height: 2.4rem;
+
+      &:hover,
+      &:focus {
+        color: yellow;
+      }
+    }
+  `}
 `
