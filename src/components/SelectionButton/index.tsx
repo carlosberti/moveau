@@ -6,6 +6,12 @@ export type SelectionButtonProps = {
 }
 
 const SelectionButton = ({ buttonText, onClick }: SelectionButtonProps) => (
-  <s.Wrapper onClick={onClick}>{buttonText}</s.Wrapper>
+  <s.Wrapper
+    title={`Click to open ${buttonText}`}
+    aria-label={`Click to open ${buttonText}`}
+    onClick={onClick}
+  >
+    {buttonText}
+  </s.Wrapper>
 )
 export default SelectionButton
