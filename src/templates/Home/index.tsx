@@ -5,7 +5,6 @@ import Base from 'templates/Base'
 import { Container } from 'components/Container'
 import { MovieCardProps } from 'components/MovieCard'
 import MovieCardsGrid from 'components/MovieCardsGrid'
-import MoviePopup from 'components/MoviePopup'
 import { getHomeMovies, getSearchMovies } from 'client'
 import { homeMoviesMapper } from 'utils/mappers'
 import * as s from './styles'
@@ -99,7 +98,6 @@ const Home = ({ movies }: HomeTemplateProps) => {
 
   return (
     <Base>
-      <MoviePopup />
       <Container>
         <s.Input
           placeholder="Search for movies"

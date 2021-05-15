@@ -1,5 +1,6 @@
 import { Container } from 'components/Container'
 import Logo from 'components/Logo'
+import MoviePopup from 'components/MoviePopup'
 import SelectionButton from 'components/SelectionButton'
 import SelectionModal from 'components/SelectionModal'
 import Link from 'next/link'
@@ -31,6 +32,7 @@ const Base = ({ children }: BaseTemplateProps) => {
 
   return (
     <s.Wrapper>
+      <MoviePopup />
       <s.FloatButtons>
         <SelectionButton
           onClick={handleFavouritesClick}
