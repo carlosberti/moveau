@@ -58,6 +58,12 @@ describe('movieDetailsMapper()', () => {
           type: 'any_type',
           site: 'any_site'
         }
+      ],
+      watchProviders: ['any_provider'],
+      production_companies: [
+        {
+          name: 'any_company'
+        }
       ]
     }
 
@@ -76,7 +82,9 @@ describe('movieDetailsMapper()', () => {
           type: 'any_type',
           site: 'any_site'
         }
-      ]
+      ],
+      watchProviders: ['any_provider'],
+      companies: ['any_company']
     })
   })
 })

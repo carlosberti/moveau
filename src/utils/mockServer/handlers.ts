@@ -37,7 +37,12 @@ export const handlers = [
       ctx.status(200),
       ctx.json({
         title: 'req_title',
-        overview: 'req_overview'
+        overview: 'req_overview',
+        production_companies: [
+          {
+            name: 'req_company_name'
+          }
+        ]
       })
     )
   }),
@@ -46,6 +51,22 @@ export const handlers = [
       ctx.status(200),
       ctx.json({
         backdrops: [{ path: 'req_path' }]
+      })
+    )
+  }),
+  rest.get(`${BASE_MOVIE_URL}/:id/watch/providers`, (_, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json({
+        results: {
+          SE: {
+            rent: [
+              {
+                provider_name: 'req_provider_name'
+              }
+            ]
+          }
+        }
       })
     )
   }),

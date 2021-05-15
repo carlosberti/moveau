@@ -49,6 +49,12 @@ describe('getMovieDetails()', () => {
           site: 'req_site',
           type: 'req_type'
         }
+      ],
+      watchProviders: ['req_provider_name'],
+      production_companies: [
+        {
+          name: 'req_company_name'
+        }
       ]
     })
   })
