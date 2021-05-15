@@ -36,7 +36,9 @@ jobs:
         run: yarn typecheck
 
       - name: Test
-        run: yarn test:ci
+        run: yarn test:ci && yarn codecov -t
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Build
         run: yarn build
