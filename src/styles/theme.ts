@@ -6,6 +6,7 @@ export const darkTheme = {
     orange: '#FFCA80',
     purple: '#9580FF',
     white: '#F8F8F2',
+    purpleCyan: 'linear-gradient(to right, #9580FF 0%, #80FFEA 100%) 1',
     posterText: {
       normal: '#9dacad',
       hover: '#F8F8F2'
