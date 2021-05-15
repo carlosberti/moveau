@@ -1,7 +1,11 @@
 import Image from 'next/image'
-import { useState } from 'react'
 
-import { MoviePopupProps, useFavouriteStore, useMovieStore } from 'store'
+import {
+  MoviePopupProps,
+  useFavouriteStore,
+  useMovieStore,
+  useWatchLaterStore
+} from 'store'
 import { getVideos } from 'client'
 import Star from 'components/Star'
 import Arrow from 'components/Arrow'
@@ -24,9 +28,14 @@ const MovieCard = ({
   width = 131,
   height = 188
 }: MovieCardProps) => {
-  const [watchLater, setWatchLater] = useState(false)
-  const [favourite, setFavourite] = useState(false)
-  const addFavourite = useFavouriteStore((state) => state.addFavourite)
+  const favourite = useFavouriteStore((state) => ({
+    setFavourite: state.setItems,
+    isFavourite: state.isItem
+  }))
+  const watchLater = useWatchLaterStore((state) => ({
+    setWatchLater: state.setItems,
+    isWatchLater: state.isItem
+  }))
   const addMovie = useMovieStore((state) => state.addMovie)
   const movie = useMovieStore((state) => state.movie)
 
@@ -49,12 +58,11 @@ const MovieCard = ({
   }
 
   const handleFavouriteClick = () => {
-    addFavourite({ id, name, img })
-    setFavourite(!favourite)
+    favourite.setFavourite({ id, img, name, overview })
   }
 
   const handleWatchLaterClick = () => {
-    setWatchLater(!watchLater)
+    watchLater.setWatchLater({ id, img, name, overview })
   }
 
   return (
@@ -70,7 +78,10 @@ const MovieCard = ({
         </s.ImageBox>
         <p>{name}</p>
       </s.Content>
-      <s.IconsWrapper watchLater={watchLater} favourite={favourite}>
+      <s.IconsWrapper
+        watchLater={watchLater.isWatchLater(id)}
+        favourite={favourite.isFavourite(id)}
+      >
         <button
           onClick={handleFavouriteClick}
           title="Click to favourite"
