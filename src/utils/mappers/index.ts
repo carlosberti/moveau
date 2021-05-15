@@ -20,5 +20,7 @@ export const movieDetailsMapper = ({ id, movie }: MovieDetailsMapperProps) => ({
   name: movie.title,
   overview: movie.overview,
   images: movie.images,
-  videos: movie.videos
+  videos: movie.videos,
+  watchProviders: movie.watchProviders,
+  companies: movie.production_companies.map((company) => company.name)
 })

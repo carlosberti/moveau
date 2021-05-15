@@ -74,12 +74,29 @@ type MovieDetailsProps = {
 type MovieDetails = {
   title: string
   overview: string
+  production_companies: {
+    name: string
+  }[]
 }
 
 type Images = {
   backdrops: {
     path: string
   }[]
+}
+
+type Rent = {
+  rent: {
+    provider_name: string
+  }[]
+}
+
+type Language = {
+  SE: Rent
+}
+
+type WatchProvider = {
+  results: Language
 }
 
 type ImagesResponse = {
@@ -89,15 +106,17 @@ type ImagesResponse = {
 export type MovieDetailsResponse = MovieDetails & {
   images: ImagesResponse[]
   videos: VideosResponse[]
+  watchProviders: string[]
 }
 
 export const getMovieDetails = async ({
   id
 }: MovieDetailsProps): Promise<MovieDetailsResponse | undefined> => {
-  const [details, images, videos] = await Promise.allSettled([
+  const [details, images, videos, watchProviders] = await Promise.allSettled([
     axios.get<MovieDetails>(`${BASE_MOVIE_URL}/${id}`, config),
     axios.get<Images>(`${BASE_MOVIE_URL}/${id}/images`, config),
-    axios.get<VideosData>(`${BASE_MOVIE_URL}/${id}/videos`, config)
+    axios.get<VideosData>(`${BASE_MOVIE_URL}/${id}/videos`, config),
+    axios.get<WatchProvider>(`${BASE_MOVIE_URL}/${id}/watch/providers`, config)
   ])
 
   if (details.status === 'rejected') {
@@ -109,11 +128,18 @@ export const getMovieDetails = async ({
     images.status === 'fulfilled' ? images.value.data.backdrops : []
   const movieVideos =
     videos.status === 'fulfilled' ? videos.value.data.results : []
+  const movieWatchProviders =
+    watchProviders.status === 'fulfilled'
+      ? watchProviders.value.data.results.SE.rent
+      : []
 
   const movie = {
     ...movieDetails,
     images: [...movieImages],
-    videos: [...movieVideos]
+    videos: [...movieVideos],
+    watchProviders: movieWatchProviders.map(
+      (provider) => provider.provider_name
+    )
   }
 
   return movie
