@@ -22,12 +22,10 @@ const Base = ({ children }: BaseTemplateProps) => {
   }))
 
   const handleFavouritesClick = () => {
-    document.querySelector('body')!.style.overflow = 'hidden'
     favourites.setIsOpen()
   }
 
   const handleWatchLaterClick = () => {
-    document.querySelector('body')!.style.overflow = 'hidden'
     watchLater.setIsOpen()
   }
 
