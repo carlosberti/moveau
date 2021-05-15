@@ -4,6 +4,11 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: auto;
+  padding-bottom: 1.8rem;
+
+  @media screen and (min-width: 768px) {
+    padding-bottom: 2.4rem;
+  }
 `
 
 export const Header = styled.header`
