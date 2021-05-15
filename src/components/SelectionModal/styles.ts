@@ -2,20 +2,6 @@ import styled, { css } from 'styled-components'
 
 import { Wrapper } from 'components/MovieCardsGrid/styles'
 
-export const Overlay = styled.button`
-  ${({ theme }) => css`
-    background: transparent;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: ${theme.layers.overlay};
-    width: 100%;
-    height: 100%;
-  `}
-`
-
 export const Content = styled.div`
   ${({ theme }) => css`
     position: fixed;
@@ -27,7 +13,7 @@ export const Content = styled.div`
     max-height: 77rem;
     max-width: 32rem;
     padding: 1.6rem 0;
-    bottom: 10%;
+    bottom: 5%;
     right: 5%;
     z-index: ${theme.layers.alwaysOnTop};
     border: 0.1rem solid;
