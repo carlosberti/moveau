@@ -46,7 +46,9 @@ describe('<SelectionModal />', () => {
     render(<SelectionModal {...props} />)
 
     expect(
-      screen.getAllByLabelText(/click to close/i)[0].getAttribute('aria-hidden')
+      screen
+        .getByLabelText(/click to close/i)
+        .parentElement?.parentElement!.getAttribute('aria-hidden')
     ).toBe('false')
     expect(screen.getByLabelText(/close icon/i)).toBeInTheDocument()
     expect(screen.getByTestId('Mock MovieCardsGrid')).toBeInTheDocument()
@@ -63,10 +65,9 @@ describe('<SelectionModal />', () => {
   it('should call setIsOpen if overlay or close button is clicked', () => {
     render(<SelectionModal {...props} />)
 
-    userEvent.click(screen.getAllByLabelText(/Click to close/i)[0])
-    userEvent.click(screen.getAllByLabelText(/Click to close/i)[1])
+    userEvent.click(screen.getByLabelText(/Click to close/i))
 
-    expect(setIsOpen).toHaveBeenCalledTimes(2)
+    expect(setIsOpen).toHaveBeenCalledTimes(1)
   })
 
   it('should call clearItems if clear items button is clicked', () => {
