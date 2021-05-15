@@ -16,4 +16,10 @@ describe('<MovieInfos />', () => {
     expect(screen.getByText(/any_item/i)).toBeInTheDocument()
     expect(container.firstChild).toHaveStyle('color: white')
   })
+
+  it('should render not found if no items', () => {
+    render(<MovieInfos {...props} items={[]} />)
+
+    expect(screen.getByText(/players not found/i)).toBeInTheDocument()
+  })
 })
