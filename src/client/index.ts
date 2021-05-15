@@ -74,6 +74,7 @@ type MovieDetailsProps = {
 type MovieDetails = {
   title: string
   overview: string
+  poster_path: string
   production_companies: {
     name: string
   }[]
@@ -85,14 +86,17 @@ type Images = {
   }[]
 }
 
-type Buy = {
+type Options = {
   buy: {
+    provider_name: string
+  }[]
+  rent: {
     provider_name: string
   }[]
 }
 
 type Language = {
-  SE: Buy
+  SE: Options
 }
 
 type WatchProvider = {
@@ -130,7 +134,11 @@ export const getMovieDetails = async ({
     videos.status === 'fulfilled' ? videos.value.data.results : []
   const movieWatchProviders =
     watchProviders.status === 'fulfilled'
-      ? watchProviders.value.data.results.SE.buy
+      ? watchProviders.value.data.results.SE?.buy
+        ? watchProviders.value.data.results.SE.buy
+        : watchProviders.value.data.results.SE?.rent
+        ? watchProviders.value.data.results.SE?.rent
+        : []
       : []
 
   const movie = {

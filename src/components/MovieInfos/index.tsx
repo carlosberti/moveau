@@ -10,9 +10,11 @@ const MovieInfos = ({ title, items, color }: MovieInfosProps) => (
   <s.Wrapper color={color}>
     <p>{title}</p>
     <ul>
-      {items.map((provider) => (
-        <li key={provider}>{provider}</li>
-      ))}
+      {items.length > 0 ? (
+        items.map((provider) => <li key={provider}>{provider}</li>)
+      ) : (
+        <li key={1}>players not found</li>
+      )}
     </ul>
   </s.Wrapper>
 )
