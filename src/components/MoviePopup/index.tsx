@@ -10,15 +10,22 @@ import slugify from 'slugify'
 
 const MoviePopup = () => {
   const [watchLater, setWatchLater] = useState(false)
-  const [favourite, setFavourite] = useState(false)
-  const addFavourite = useFavouriteStore((state) => state.addFavourite)
+  const favourite = useFavouriteStore((state) => ({
+    setFavourite: state.setItems,
+    isFavourite: state.isItem
+  }))
   const movie = useMovieStore((state) => state.movie)
   const removeMovie = useMovieStore((state) => state.removeMovie)
-  // const favourites = useFavouriteStore((state) => state.favourites)
 
   const handleFavouriteClick = () => {
-    addFavourite({ id: '1w121', name: 'sdfsadf', img: 'sadfsdfsf' })
-    setFavourite(!favourite)
+    if (movie) {
+      favourite.setFavourite({
+        id: movie.id,
+        name: movie.name,
+        img: movie?.img,
+        overview: movie.overview
+      })
+    }
   }
 
   const handleWatchLaterClick = () => {
@@ -50,7 +57,10 @@ const MoviePopup = () => {
                   width={200}
                   height={287}
                 />
-                <s.IconsWrapper watchLater={watchLater} favourite={favourite}>
+                <s.IconsWrapper
+                  watchLater={watchLater}
+                  favourite={favourite.isFavourite(movie.id)}
+                >
                   <button
                     onClick={handleFavouriteClick}
                     title="Click to favourite"

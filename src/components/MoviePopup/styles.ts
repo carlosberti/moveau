@@ -1,7 +1,5 @@
 import styled, { css, DefaultTheme } from 'styled-components'
 
-export const Wrapper = styled.div``
-
 export const Overlay = styled.button`
   ${({ theme }) => css`
     background: rgba(0, 0, 0, 0.5);
