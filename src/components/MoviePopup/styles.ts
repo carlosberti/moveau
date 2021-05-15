@@ -181,6 +181,7 @@ export const TextWrapper = styled.div`
       background: transparent;
       margin-top: auto;
       width: 100%;
+      cursor: pointer;
 
       > a {
         text-decoration: none;
