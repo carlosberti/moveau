@@ -79,6 +79,18 @@ export const LeftWrapper = styled.div`
       border-image: ${theme.colors.border.wallpaper};
     }
 
+    > a {
+      margin-top: 1.2rem;
+      color: ${theme.colors.white};
+      font-size: 1rem;
+      text-align: center;
+
+      &:hover,
+      &:focus {
+        opacity: 0.8;
+      }
+    }
+
     @media screen and (min-width: 500px) {
       > img {
         width: 12rem;
@@ -87,6 +99,10 @@ export const LeftWrapper = styled.div`
     }
 
     @media screen and (min-width: 768px) {
+      > a {
+        font-size: 1.6rem;
+      }
+
       > img {
         width: 20rem;
         height: 28.7rem;

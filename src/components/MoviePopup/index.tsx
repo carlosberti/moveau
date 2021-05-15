@@ -1,9 +1,12 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState } from 'react'
+import Link from 'next/link'
 
 import * as s from './styles'
 import { useFavouriteStore, useMovieStore } from 'store'
 import Arrow from 'components/Arrow'
 import Star from 'components/Star'
+import slugify from 'slugify'
 
 const MoviePopup = () => {
   const [watchLater, setWatchLater] = useState(false)
@@ -63,6 +66,9 @@ const MoviePopup = () => {
                     <Arrow />
                   </button>
                 </s.IconsWrapper>
+                <Link href={`/${movie.id}/${slugify(movie.name)}`} passHref>
+                  <a>{`go to movie's page`}</a>
+                </Link>
               </s.LeftWrapper>
               <s.TextWrapper>
                 <h2>{movie.name}</h2>
