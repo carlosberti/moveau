@@ -22,7 +22,6 @@ const MoviePopup = () => {
   }
 
   const handleWatchLaterClick = () => {
-    console.log('entrou')
     setWatchLater(!watchLater)
   }
 
