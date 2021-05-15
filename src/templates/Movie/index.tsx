@@ -1,10 +1,11 @@
-import BannerSlider, { BannerSliderProps } from 'components/BannerSlider'
-// import { Container } from 'components/Container'
+import BannerSlider from 'components/BannerSlider'
+import { Container } from 'components/Container'
+import MovieInfos from 'components/MovieInfos'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import slugify from 'slugify'
 import Base from 'templates/Base'
-// import * as s from './styles'
+import * as s from './styles'
 
 type ImagesResponse = {
   file_path: string
@@ -16,15 +17,25 @@ type VideosResponse = {
   type: string
 }
 
-export type MovieProps = {
+export type MovieTemplateProps = {
   id: string
   name: string
   overview: string
   images: ImagesResponse[]
   videos: VideosResponse[]
+  watchProviders: string[]
+  companies: string[]
 }
 
-const Movie = ({ id, name, videos, images }: MovieProps) => {
+const Movie = ({
+  id,
+  name,
+  overview,
+  videos,
+  images,
+  watchProviders,
+  companies
+}: MovieTemplateProps) => {
   const router = useRouter()
 
   useEffect(() => {
@@ -52,14 +63,33 @@ const Movie = ({ id, name, videos, images }: MovieProps) => {
     return image.slice(0, 3).concat(video.slice(0, 3))
   }
 
-  const item: BannerSliderProps = {
-    name,
-    path: concatImagesAndVideos()
-  }
-
   return (
     <Base>
-      <BannerSlider name={item.name} path={item.path} />
+      <BannerSlider name={name} path={concatImagesAndVideos()} />
+      <Container>
+        <s.Content>
+          <s.TextWrapper>
+            <h1>{name}</h1>
+            <h2>{overview}</h2>
+          </s.TextWrapper>
+          <s.MovieInfos>
+            <div>
+              <MovieInfos
+                title="You can watch on:"
+                color="#FF80BF"
+                items={watchProviders}
+              />
+            </div>
+            <div>
+              <MovieInfos
+                title="Production companies:"
+                color="#FFCA80"
+                items={companies}
+              />
+            </div>
+          </s.MovieInfos>
+        </s.Content>
+      </Container>
     </Base>
   )
 }

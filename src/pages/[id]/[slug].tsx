@@ -1,10 +1,10 @@
 import { getMovieDetails } from 'client'
 import { GetStaticProps } from 'next'
-import Movie, { MovieProps } from 'templates/Movie'
+import Movie, { MovieTemplateProps } from 'templates/Movie'
 import { movieDetailsMapper } from 'utils/mappers'
 import { ParsedUrlQuery } from 'querystring'
 
-export default function MoviePage(props: MovieProps) {
+export default function MoviePage(props: MovieTemplateProps) {
   return <Movie {...props} />
 }
 
