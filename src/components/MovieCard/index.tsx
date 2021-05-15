@@ -1,10 +1,11 @@
 import Image from 'next/image'
+import { useState } from 'react'
 
-import { MoviePopupProps, useMovieStore } from 'store'
+import { MoviePopupProps, useFavouriteStore, useMovieStore } from 'store'
 import { getVideos } from 'client'
-import * as s from './styles'
 import Star from 'components/Star'
 import Arrow from 'components/Arrow'
+import * as s from './styles'
 
 export type MovieCardProps = {
   id: string
@@ -23,6 +24,9 @@ const MovieCard = ({
   width = 131,
   height = 188
 }: MovieCardProps) => {
+  const [watchLater, setWatchLater] = useState(false)
+  const [favourite, setFavourite] = useState(false)
+  const addFavourite = useFavouriteStore((state) => state.addFavourite)
   const addMovie = useMovieStore((state) => state.addMovie)
   const movie = useMovieStore((state) => state.movie)
 
@@ -44,6 +48,15 @@ const MovieCard = ({
     addMovie(movies)
   }
 
+  const handleFavouriteClick = () => {
+    addFavourite({ id, name, img })
+    setFavourite(!favourite)
+  }
+
+  const handleWatchLaterClick = () => {
+    setWatchLater(!watchLater)
+  }
+
   return (
     <s.Wrapper>
       <s.Content
@@ -57,9 +70,21 @@ const MovieCard = ({
         </s.ImageBox>
         <p>{name}</p>
       </s.Content>
-      <s.IconsWrapper>
-        <Star />
-        <Arrow />
+      <s.IconsWrapper watchLater={watchLater} favourite={favourite}>
+        <button
+          onClick={handleFavouriteClick}
+          title="Click to favourite"
+          aria-label="Click to favourite"
+        >
+          <Star />
+        </button>
+        <button
+          onClick={handleWatchLaterClick}
+          title="Click to watch later"
+          aria-label="Click to watch later"
+        >
+          <Arrow />
+        </button>
       </s.IconsWrapper>
     </s.Wrapper>
   )

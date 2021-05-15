@@ -11,9 +11,9 @@ import slugify from 'slugify'
 const MoviePopup = () => {
   const [watchLater, setWatchLater] = useState(false)
   const [favourite, setFavourite] = useState(false)
+  const addFavourite = useFavouriteStore((state) => state.addFavourite)
   const movie = useMovieStore((state) => state.movie)
   const removeMovie = useMovieStore((state) => state.removeMovie)
-  const addFavourite = useFavouriteStore((state) => state.addFavourite)
   // const favourites = useFavouriteStore((state) => state.favourites)
 
   const handleFavouriteClick = () => {
@@ -22,6 +22,7 @@ const MoviePopup = () => {
   }
 
   const handleWatchLaterClick = () => {
+    console.log('entrou')
     setWatchLater(!watchLater)
   }
 
