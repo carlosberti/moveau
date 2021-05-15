@@ -79,18 +79,6 @@ export const LeftWrapper = styled.div`
       border-image: ${theme.colors.border.wallpaper};
     }
 
-    > a {
-      margin-top: 1.2rem;
-      color: ${theme.colors.white};
-      font-size: 1rem;
-      text-align: center;
-
-      &:hover,
-      &:focus {
-        opacity: 0.8;
-      }
-    }
-
     @media screen and (min-width: 500px) {
       > img {
         width: 12rem;
@@ -99,10 +87,6 @@ export const LeftWrapper = styled.div`
     }
 
     @media screen and (min-width: 768px) {
-      > a {
-        font-size: 1.6rem;
-      }
-
       > img {
         width: 20rem;
         height: 28.7rem;
@@ -175,6 +159,8 @@ export const IconsWrapper = styled.div<IconsWrapper>`
 
 export const TextWrapper = styled.div`
   ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
     margin-left: 1.2rem;
     > h2,
     > h3 {
@@ -183,6 +169,30 @@ export const TextWrapper = styled.div`
 
     > h3 {
       margin-top: 0.8rem;
+      margin-bottom: 1.6rem;
+    }
+
+    > button {
+      display: block;
+      border: 0.1rem solid;
+      border-image: ${theme.colors.border.poster};
+      align-self: flex-end;
+      justify-self: flex-end;
+      font-size: 1rem;
+      text-align: center;
+      padding: 0.8rem;
+      background: transparent;
+      margin-top: auto;
+
+      > a {
+        text-decoration: none;
+        color: ${theme.colors.white};
+      }
+
+      &:hover,
+      &:focus {
+        opacity: 0.8;
+      }
     }
 
     @media screen and (min-width: 500px) {
@@ -197,6 +207,11 @@ export const TextWrapper = styled.div`
 
     @media screen and (min-width: 768px) {
       margin-left: 1.8rem;
+
+      > button {
+        font-size: 1.6rem;
+      }
+
       > h2 {
         font-size: 2.2rem;
       }

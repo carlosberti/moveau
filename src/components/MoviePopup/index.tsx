@@ -67,13 +67,15 @@ const MoviePopup = () => {
                     <Arrow />
                   </button>
                 </s.IconsWrapper>
-                <Link href={`/${movie.id}/${slugify(movie.name)}`} passHref>
-                  <a>{`go to movie's page`}</a>
-                </Link>
               </s.LeftWrapper>
               <s.TextWrapper>
                 <h2>{movie.name}</h2>
                 <h3>{movie.overview}</h3>
+                <button>
+                  <Link href={`/${movie.id}/${slugify(movie.name)}`} passHref>
+                    <a>{`go to movie's page`}</a>
+                  </Link>
+                </button>
               </s.TextWrapper>
             </s.TopWrapper>
             {movie.video && (
