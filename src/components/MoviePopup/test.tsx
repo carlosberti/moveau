@@ -32,6 +32,7 @@ describe('<MoviePopup />', () => {
       screen.getByRole('heading', { name: /any_overview/i })
     ).toBeInTheDocument()
     expect(screen.getByLabelText(/any_name trailer/i)).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /go to/i })).toBeInTheDocument()
   })
 
   it('should change icons color on click', () => {
