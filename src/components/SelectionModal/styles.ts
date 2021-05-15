@@ -32,6 +32,7 @@ export const Content = styled.div`
     z-index: ${theme.layers.alwaysOnTop};
     border: 0.1rem solid;
     border-image: ${theme.colors.purpleCyan};
+    box-shadow: 6px 6px 6px 4px rgba(0, 0, 0, 0.75);
   `}
 `
 
