@@ -22,4 +22,4 @@ export const darkTheme = {
     overlay: 20,
     alwaysOnTop: 30
   }
-}
+} as const
