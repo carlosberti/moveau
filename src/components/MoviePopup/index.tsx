@@ -1,18 +1,20 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { useState } from 'react'
 import Link from 'next/link'
 
 import * as s from './styles'
-import { useFavouriteStore, useMovieStore } from 'store'
+import { useFavouriteStore, useMovieStore, useWatchLaterStore } from 'store'
 import Arrow from 'components/Arrow'
 import Star from 'components/Star'
 import slugify from 'slugify'
 
 const MoviePopup = () => {
-  const [watchLater, setWatchLater] = useState(false)
   const favourite = useFavouriteStore((state) => ({
     setFavourite: state.setItems,
     isFavourite: state.isItem
+  }))
+  const watchLater = useWatchLaterStore((state) => ({
+    setWatchLater: state.setItems,
+    isWatchLater: state.isItem
   }))
   const movie = useMovieStore((state) => state.movie)
   const removeMovie = useMovieStore((state) => state.removeMovie)
@@ -29,7 +31,14 @@ const MoviePopup = () => {
   }
 
   const handleWatchLaterClick = () => {
-    setWatchLater(!watchLater)
+    if (movie) {
+      watchLater.setWatchLater({
+        id: movie.id,
+        name: movie.name,
+        img: movie?.img,
+        overview: movie.overview
+      })
+    }
   }
 
   const handleOverlayClick = () => {
@@ -58,7 +67,7 @@ const MoviePopup = () => {
                   height={287}
                 />
                 <s.IconsWrapper
-                  watchLater={watchLater}
+                  watchLater={watchLater.isWatchLater(movie.id)}
                   favourite={favourite.isFavourite(movie.id)}
                 >
                   <button
