@@ -92,7 +92,8 @@ const Home = ({ movies }: HomeTemplateProps) => {
   }
 
   const loadingSpinner = () =>
-    (!totalPages || page <= totalPages) && (
+    (!totalPages || page <= totalPages) &&
+    moviesToShow.length > 0 && (
       <s.LoadingSpinner role="img" ref={loader} aria-label="Loading more" />
     )
 
