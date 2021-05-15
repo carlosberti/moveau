@@ -2,11 +2,41 @@ import '../.jest/next-image.mock'
 import { ThemeProvider } from 'styled-components'
 import GlobalStyles from 'styles/global'
 import {darkTheme} from 'styles/theme'
-import {useMovieStore} from 'store'
+import {useMovieStore, useFavouriteStore} from 'store'
 
 export const decorators = [
   (Story) => {
     const addMovie = useMovieStore(state => state.addMovie)
+    const setFavourite = useFavouriteStore(state => state.setFavourite)
+    const favourites = [{
+      id: '278',
+      img: '/assets/img/aladdin.jpeg',
+      name: 'Aladdin',
+    },{
+      id: '280',
+      img: '/assets/img/aladdin.jpeg',
+      name: 'Aladdin',
+    },{
+      id: '281',
+      img: '/assets/img/aladdin.jpeg',
+      name: 'Aladdin',
+    },{
+      id: '282',
+      img: '/assets/img/aladdin.jpeg',
+      name: 'Aladdin',
+    },{
+      id: '283',
+      img: '/assets/img/aladdin.jpeg',
+      name: 'Aladdin',
+    },{
+      id: '284',
+      img: '/assets/img/aladdin.jpeg',
+      name: 'Aladdin',
+    },{
+      id: '285',
+      img: '/assets/img/aladdin.jpeg',
+      name: 'Aladdin',
+    }]
     addMovie({
       id: '278',
       img: '/assets/img/aladdin.jpeg',
@@ -14,6 +44,9 @@ export const decorators = [
       overview: ',jahsgdf asldjfh adjlsfh asjldfh asldjfh asdhjlf lasjdh',
       video: 'ur9GKLl8v4U'
     })
+
+    favourites.map(favourite => setFavourite(favourite))
+
 
     return (
       <ThemeProvider theme={darkTheme}>
