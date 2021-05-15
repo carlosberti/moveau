@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+import userEvent from '@testing-library/user-event'
 import 'match-media.mock'
 import { render, screen } from 'utils/test-utils'
 
@@ -6,11 +8,7 @@ import Movie, { MovieTemplateProps } from '.'
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const useRouter = jest.spyOn(require('next/router'), 'useRouter')
 
-useRouter.mockImplementation(() => ({
-  isFallback: false,
-  pathname: 'any-name',
-  push: jest.fn()
-}))
+const push = jest.fn()
 
 jest.mock('components/MovieInfos', () => {
   return {
@@ -32,11 +30,27 @@ const props: MovieTemplateProps = {
   overview: 'any_overview',
   videos: [{ key: 'any_key', site: 'any_site', type: 'any_type' }],
   companies: ['any_company'],
-  watchProviders: ['any_provider']
+  watchProviders: ['any_provider'],
+  poster_path: 'any_path'
 }
 
 describe('<Movie />', () => {
+  it('should not call push if name is in url', () => {
+    useRouter.mockImplementation(() => ({
+      isFallback: true,
+      pathname: '/id/any_name',
+      push
+    }))
+    render(<Movie {...props} />)
+
+    expect(push).not.toHaveBeenCalled()
+  })
   it('should render correctly', () => {
+    useRouter.mockImplementation(() => ({
+      isFallback: false,
+      pathname: 'any-name',
+      push: push
+    }))
     render(<Movie {...props} />)
 
     expect(
@@ -46,6 +60,54 @@ describe('<Movie />', () => {
       screen.getByRole('heading', { name: 'any_overview' })
     ).toBeInTheDocument()
     expect(screen.getAllByTestId('Mock MovieInfos')).toHaveLength(2)
+    expect(
+      screen.getByRole('button', { name: /click to favourite/i })
+    ).toBeInTheDocument()
+    expect(
+      screen.getByRole('button', { name: /click to watch later/i })
+    ).toBeInTheDocument()
+    expect(push).toHaveBeenCalled()
+  })
+
+  it('should add to favourite store on favourite button click', async () => {
+    const useFavouriteStore = jest.spyOn(require('store'), 'useFavouriteStore')
+
+    const setFavourite = jest.fn()
+
+    useFavouriteStore.mockImplementation(() => ({
+      setFavourite,
+      isFavourite: jest.fn(() => true)
+    }))
+
+    render(<Movie {...props} />)
+
+    const FavouriteButton = screen.getByLabelText(/Click to favourite/i)
+
+    userEvent.click(FavouriteButton)
+
+    expect(setFavourite).toHaveBeenCalled()
+  })
+
+  it('should add to watchlater store on watch later button click', async () => {
+    const useWatchLaterStore = jest.spyOn(
+      require('store'),
+      'useWatchLaterStore'
+    )
+
+    const setWatchLater = jest.fn()
+
+    useWatchLaterStore.mockImplementation(() => ({
+      setWatchLater,
+      isWatchLater: jest.fn(() => true)
+    }))
+
+    render(<Movie {...props} />)
+
+    const watchLaterButton = screen.getByLabelText(/Click to watch later/i)
+
+    userEvent.click(watchLaterButton)
+
+    expect(setWatchLater).toHaveBeenCalled()
   })
 
   it('should return loading if isFallback is true', () => {
