@@ -64,7 +64,8 @@ describe('movieDetailsMapper()', () => {
         {
           name: 'any_company'
         }
-      ]
+      ],
+      poster_path: 'any_path'
     }
 
     expect(movieDetailsMapper({ id: '1', movie })).toStrictEqual({
@@ -84,7 +85,8 @@ describe('movieDetailsMapper()', () => {
         }
       ],
       watchProviders: ['any_provider'],
-      companies: ['any_company']
+      companies: ['any_company'],
+      poster_path: 'https://image.tmdb.org/t/p/w300/any_path'
     })
   })
 })
