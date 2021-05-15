@@ -1,6 +1,10 @@
 import styled, { css } from 'styled-components'
 
-export const Wrapper = styled.button`
+export const Wrapper = styled.div`
+  display: grid;
+`
+
+export const Content = styled.button`
   ${({ theme }) => css`
     border: none;
     text-align: left;
@@ -69,4 +73,16 @@ export const ImageBox = styled.div`
       }
     }
   `}
+`
+
+export const IconsWrapper = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-self: flex-end;
+  margin-top: 1.6rem;
+
+  > div {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
 `

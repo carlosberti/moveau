@@ -3,6 +3,8 @@ import Image from 'next/image'
 import { MoviePopupProps, useMovieStore } from 'store'
 import { getVideos } from 'client'
 import * as s from './styles'
+import Star from 'components/Star'
+import Arrow from 'components/Arrow'
 
 export type MovieCardProps = {
   id: string
@@ -43,16 +45,22 @@ const MovieCard = ({
   }
 
   return (
-    <s.Wrapper
-      onClick={handleClick}
-      title="Click to open more infos"
-      aria-label="Click to open more infos"
-      tabIndex={movie ? -1 : 0}
-    >
-      <s.ImageBox>
-        <Image src={img} alt={name} width={width} height={height} />
-      </s.ImageBox>
-      <p>{name}</p>
+    <s.Wrapper>
+      <s.Content
+        onClick={handleClick}
+        title="Click to open more infos"
+        aria-label="Click to open more infos"
+        tabIndex={movie ? -1 : 0}
+      >
+        <s.ImageBox>
+          <Image src={img} alt={name} width={width} height={height} />
+        </s.ImageBox>
+        <p>{name}</p>
+      </s.Content>
+      <s.IconsWrapper>
+        <Star />
+        <Arrow />
+      </s.IconsWrapper>
     </s.Wrapper>
   )
 }

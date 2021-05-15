@@ -5,7 +5,6 @@ export const Wrapper = styled.section`
   grid-template-columns: repeat(auto-fit, 13.1rem);
   grid-column-gap: 1.6rem;
   grid-row-gap: 2.4rem;
-  align-items: start;
   justify-content: space-evenly;
 
   @media screen and (min-width: 1024px) {
