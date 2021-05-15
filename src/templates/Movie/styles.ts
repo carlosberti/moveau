@@ -14,8 +14,14 @@ export const TextWrapper = styled.div`
       color: ${theme.colors.white};
     }
 
+    > h1 {
+      font-size: 2.4rem;
+    }
+
     > h2 {
       margin-top: 1.2rem;
+      font-size: 1.6rem;
+      font-weight: 500;
     }
   `}
 `
