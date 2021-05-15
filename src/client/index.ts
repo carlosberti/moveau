@@ -85,14 +85,14 @@ type Images = {
   }[]
 }
 
-type Rent = {
-  rent: {
+type Buy = {
+  buy: {
     provider_name: string
   }[]
 }
 
 type Language = {
-  SE: Rent
+  SE: Buy
 }
 
 type WatchProvider = {
@@ -130,16 +130,16 @@ export const getMovieDetails = async ({
     videos.status === 'fulfilled' ? videos.value.data.results : []
   const movieWatchProviders =
     watchProviders.status === 'fulfilled'
-      ? watchProviders.value.data.results.SE.rent
+      ? watchProviders.value.data.results.SE.buy
       : []
 
   const movie = {
     ...movieDetails,
     images: [...movieImages],
     videos: [...movieVideos],
-    watchProviders: movieWatchProviders.map(
-      (provider) => provider.provider_name
-    )
+    watchProviders: movieWatchProviders
+      ? movieWatchProviders.map((provider) => provider.provider_name)
+      : []
   }
 
   return movie

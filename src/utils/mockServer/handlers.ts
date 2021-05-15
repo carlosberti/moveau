@@ -60,7 +60,7 @@ export const handlers = [
       ctx.json({
         results: {
           SE: {
-            rent: [
+            buy: [
               {
                 provider_name: 'req_provider_name'
               }
