@@ -6,7 +6,7 @@ import Star from 'components/Star'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import slugify from 'slugify'
-import { useFavouriteStore, useWatchLaterStore } from 'store'
+import { useFavouriteStore, useMovieStore, useWatchLaterStore } from 'store'
 import Base from 'templates/Base'
 import * as s from './styles'
 
@@ -50,6 +50,7 @@ const Movie = ({
     setWatchLater: state.setItems,
     isWatchLater: state.isItem
   }))
+  const removeMovie = useMovieStore((state) => state.removeMovie)
 
   const handleFavouriteClick = () => {
     favourite.setFavourite({ id, img: poster_path, name, overview })
@@ -68,6 +69,11 @@ const Movie = ({
       }
     }
   }, [router.isFallback])
+
+  useEffect(() => {
+    document.querySelector('body')!.style.overflow = 'auto'
+    removeMovie()
+  }, [])
 
   if (router.isFallback) {
     return <div>loading...</div>
