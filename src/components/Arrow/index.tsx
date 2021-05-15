@@ -1,11 +1,15 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import * as s from './styles'
 
 export type ArrowProps = {
   hideClock?: boolean
+  className?: any
+  style?: any
+  onClick?: any
 }
 
-const Arrow = ({ hideClock = false }: ArrowProps) => (
-  <s.Wrapper hideClock={hideClock}>
+const Arrow = ({ hideClock = false, ...rest }: ArrowProps) => (
+  <s.Wrapper hideClock={hideClock} {...rest}>
     <svg
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
