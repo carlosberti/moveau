@@ -1,9 +1,12 @@
+import Arrow from 'components/Arrow'
 import BannerSlider from 'components/BannerSlider'
 import { Container } from 'components/Container'
 import MovieInfos from 'components/MovieInfos'
+import Star from 'components/Star'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import slugify from 'slugify'
+import { useFavouriteStore, useWatchLaterStore } from 'store'
 import Base from 'templates/Base'
 import * as s from './styles'
 
@@ -25,6 +28,7 @@ export type MovieTemplateProps = {
   videos: VideosResponse[]
   watchProviders: string[]
   companies: string[]
+  poster_path: string
 }
 
 const Movie = ({
@@ -34,15 +38,32 @@ const Movie = ({
   videos,
   images,
   watchProviders,
-  companies
+  companies,
+  poster_path
 }: MovieTemplateProps) => {
   const router = useRouter()
+  const favourite = useFavouriteStore((state) => ({
+    setFavourite: state.setItems,
+    isFavourite: state.isItem
+  }))
+  const watchLater = useWatchLaterStore((state) => ({
+    setWatchLater: state.setItems,
+    isWatchLater: state.isItem
+  }))
+
+  const handleFavouriteClick = () => {
+    favourite.setFavourite({ id, img: poster_path, name, overview })
+  }
+
+  const handleWatchLaterClick = () => {
+    watchLater.setWatchLater({ id, img: poster_path, name, overview })
+  }
 
   useEffect(() => {
     if (name) {
       const movieSlug = slugify(name)
 
-      if (!router.pathname.includes(movieSlug)) {
+      if (router.pathname.split('/')[2] !== movieSlug) {
         router.push(`/${id}/${movieSlug}`, undefined, { shallow: true })
       }
     }
@@ -69,7 +90,28 @@ const Movie = ({
       <Container>
         <s.Content>
           <s.TextWrapper>
-            <h1>{name}</h1>
+            <div>
+              <h1>{name}</h1>
+              <s.IconsWrapper
+                watchLater={watchLater.isWatchLater(id)}
+                favourite={favourite.isFavourite(id)}
+              >
+                <button
+                  onClick={handleFavouriteClick}
+                  title="Click to favourite"
+                  aria-label="Click to favourite"
+                >
+                  <Star />
+                </button>
+                <button
+                  onClick={handleWatchLaterClick}
+                  title="Click to watch later"
+                  aria-label="Click to watch later"
+                >
+                  <Arrow />
+                </button>
+              </s.IconsWrapper>
+            </div>
             <h2>{overview}</h2>
           </s.TextWrapper>
           <s.MovieInfos>
