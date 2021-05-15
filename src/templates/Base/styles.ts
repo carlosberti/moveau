@@ -26,7 +26,7 @@ export const Header = styled.header`
   `}
 `
 
-export const LogoWrapper = styled.div`
+export const LogoWrapper = styled.a`
   width: 16rem;
 `
 

@@ -1,5 +1,6 @@
 import { Container } from 'components/Container'
 import Logo from 'components/Logo'
+import Link from 'next/link'
 import * as s from './styles'
 
 export type BaseTemplateProps = {
@@ -10,9 +11,11 @@ const Base = ({ children }: BaseTemplateProps) => (
   <s.Wrapper>
     <s.Header>
       <Container>
-        <s.LogoWrapper>
-          <Logo hideOnMobile />
-        </s.LogoWrapper>
+        <Link href="/" passHref>
+          <s.LogoWrapper>
+            <Logo hideOnMobile />
+          </s.LogoWrapper>
+        </Link>
       </Container>
     </s.Header>
     <s.Content>{children}</s.Content>
