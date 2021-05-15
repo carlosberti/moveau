@@ -173,7 +173,6 @@ export const TextWrapper = styled.div`
     }
 
     > button {
-      display: block;
       border: 0.1rem solid;
       border-image: ${theme.colors.border.poster};
       align-self: flex-end;
@@ -183,6 +182,7 @@ export const TextWrapper = styled.div`
       padding: 0.8rem;
       background: transparent;
       margin-top: auto;
+      width: 100%;
 
       > a {
         text-decoration: none;
