@@ -33,3 +33,16 @@ export const LogoWrapper = styled.a`
 export const Content = styled.div`
   margin-top: 1.6rem;
 `
+
+export const FloatButtons = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 7.5rem;
+    position: fixed;
+    bottom: 10%;
+    right: 5%;
+    z-index: ${theme.layers.base};
+  `}
+`
