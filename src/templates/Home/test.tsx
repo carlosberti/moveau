@@ -14,15 +14,6 @@ jest.mock('components/MovieCardsGrid', () => {
   }
 })
 
-jest.mock('components/MoviePopup', () => {
-  return {
-    __esModule: true,
-    default: function Mock() {
-      return <div data-testid="Mock MoviePopup"></div>
-    }
-  }
-})
-
 const mockIntersectionObserver = jest.fn()
 mockIntersectionObserver.mockReturnValue({
   observe: () => null
@@ -42,7 +33,6 @@ describe('<Home />', () => {
 
     expect(screen.getByRole('textbox')).toBeInTheDocument()
     expect(screen.getByTestId('Mock MovieCardsGrid')).toBeInTheDocument()
-    expect(screen.queryByTestId('Mock MoviePopup')).toBeInTheDocument()
     expect(screen.getByLabelText('Loading more')).toBeInTheDocument()
     expect(window.IntersectionObserver).toHaveBeenCalled()
   })

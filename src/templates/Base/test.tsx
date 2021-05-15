@@ -22,6 +22,15 @@ jest.mock('components/SelectionModal', () => {
   }
 })
 
+jest.mock('components/MoviePopup', () => {
+  return {
+    __esModule: true,
+    default: function Mock() {
+      return <div data-testid="Mock MoviePopup"></div>
+    }
+  }
+})
+
 const useWatchLaterStore = jest.spyOn(require('store'), 'useWatchLaterStore')
 
 useWatchLaterStore.mockImplementation(() => ({
@@ -58,6 +67,7 @@ describe('<Base />', () => {
       screen.getByLabelText(/click to open watch later/i)
     ).toBeInTheDocument()
     expect(screen.queryByTestId('Mock SelectionModal')).not.toBeInTheDocument()
+    expect(screen.queryByTestId('Mock MoviePopup')).toBeInTheDocument()
   })
 
   it('should open selection modal when watch later or favourite button is clicked', () => {
