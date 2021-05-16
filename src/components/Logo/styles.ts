@@ -20,6 +20,7 @@ const wrapperModifiers = {
 export const Wrapper = styled.div<LogoProps>`
   ${({ hideOnMobile }) => css`
     width: 15rem;
+    height: 3.4rem;
 
     > svg {
       height: unset;

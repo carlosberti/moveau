@@ -20,10 +20,20 @@ export const Header = styled.header`
     z-index: ${theme.layers.base};
     top: 0;
 
+    > div {
+      display: flex;
+      align-items: center;
+    }
+
     @media screen and (min-width: 768px) {
       padding: 2.4rem 0;
     }
   `}
+`
+
+export const THMDBLogo = styled.svg`
+  width: 3.2rem;
+  margin-left: 2.4rem;
 `
 
 export const LogoWrapper = styled.a`
