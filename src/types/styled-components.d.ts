@@ -1,8 +1,9 @@
-import { darkTheme } from 'styles/theme'
+import { darkTheme, lightTheme } from 'styles/theme'
 
-type Theme = typeof darkTheme
+type DarkTheme = typeof darkTheme
+type LightTheme = typeof lightTheme
 
 declare module 'styled-components' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  export interface DefaultTheme extends Theme {}
+  export interface DefaultTheme extends Theme, LightTheme {}
 }

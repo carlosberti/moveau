@@ -7,6 +7,7 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    transition: color 1s linear;
 
     &::before,
     &::after {
@@ -16,11 +17,12 @@ const GlobalStyles = createGlobalStyle`
 
   html {
     font-size: 62.5%;
-  }
+    transition: color 1s linear;
 
   body {
     ${({ theme }) => css`
       background-color: ${theme.colors.background};
+      transition: color 1s linear;
     `}
   }
 

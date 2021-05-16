@@ -4,7 +4,7 @@ import MoviePopup from 'components/MoviePopup'
 import SelectionButton from 'components/SelectionButton'
 import SelectionModal from 'components/SelectionModal'
 import Link from 'next/link'
-import { useFavouriteStore, useWatchLaterStore } from 'store'
+import { useDarkMode, useFavouriteStore, useWatchLaterStore } from 'store'
 import * as s from './styles'
 
 export type BaseTemplateProps = {
@@ -23,12 +23,18 @@ const Base = ({ children }: BaseTemplateProps) => {
     isOpen: state.isOpen
   }))
 
+  const darkMode = useDarkMode((state) => state.setDarkMode)
+
   const handleFavouritesClick = () => {
     favourites.setIsOpen()
   }
 
   const handleWatchLaterClick = () => {
     watchLater.setIsOpen()
+  }
+
+  const handleOnChange = () => {
+    darkMode()
   }
 
   return (
@@ -86,6 +92,7 @@ const Base = ({ children }: BaseTemplateProps) => {
               />
             </g>
           </s.THMDBLogo>
+          <input type="checkbox" onChange={handleOnChange} />
         </Container>
       </s.Header>
       <s.Content>{children}</s.Content>

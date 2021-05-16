@@ -1,35 +1,31 @@
 import * as s from './styles'
 
-export type LogoProps = {
-  hideOnMobile?: boolean
-}
-
-const Logo = ({ hideOnMobile = false }: LogoProps) => (
-  <s.Wrapper hideOnMobile={hideOnMobile}>
+const Logo = () => (
+  <s.Wrapper>
     <svg
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 199 45"
       aria-label="movieau"
+      role="img"
     >
       <g clipPath="url(#clip0)">
         <path
-          stroke="#F8F8F2"
-          strokeWidth="1.324"
-          d="M4.632 4.632h41.029v25.147H4.632z"
-        />
-        <path
-          stroke="#F8F8F2"
-          strokeWidth="1.324"
-          d="M1.985 1.985h46.324v30.441H1.985z"
-        />
-        <path
           d="M29.516 27.864c1.355 0 2.562.286 3.62.857 1.06.55 1.896 1.387 2.51 2.51.614 1.122.921 2.488.921 4.097v10.26H33.71v-9.847c0-1.736-.434-3.06-1.303-3.97-.847-.932-2.001-1.398-3.462-1.398-1.504 0-2.7.487-3.59 1.461-.889.953-1.334 2.34-1.334 4.161v9.593h-2.858v-9.847c0-1.736-.435-3.06-1.303-3.97-.847-.932-2.001-1.398-3.462-1.398-1.504 0-2.7.487-3.59 1.461-.889.953-1.334 2.34-1.334 4.161v9.593h-2.89V28.181h2.89v2.51a5.737 5.737 0 012.287-2.097c.975-.487 2.044-.73 3.209-.73 1.46 0 2.752.328 3.875.984 1.122.657 1.959 1.62 2.51 2.891a5.709 5.709 0 012.413-2.859c1.123-.677 2.372-1.016 3.749-1.016z"
           fill="#F8F8F2"
+          className="text"
         />
         <path
           d="M23.013 18.374c-.734 0-1.355-.254-1.864-.762-.508-.508-.762-1.13-.762-1.864 0-.734.254-1.355.762-1.863.509-.508 1.13-.763 1.864-.763a2.35 2.35 0 011.779.763c.508.508.762 1.13.762 1.863 0 .734-.254 1.356-.762 1.864a2.35 2.35 0 01-1.779.762zm1.864 3.77v23.209h-3.855v-23.21h3.855z"
           fill="#F8F8F2"
+          className="text"
+        />
+
+        <path
+          stroke="#F8F8F2"
+          strokeWidth="1.324"
+          d="M1.985 1.985h46.324v30.441H1.985z"
+          className="screen"
         />
       </g>
       <g clipPath="url(#clip1)" fill="#F8F8F2" className="text">
@@ -37,10 +33,10 @@ const Logo = ({ hideOnMobile = false }: LogoProps) => (
       </g>
       <defs>
         <clipPath id="clip0">
-          <path fill="#F8F8F2" d="M0 0h50.294v45H0z" />
+          <path fill="#fff" d="M0 0h50.294v45H0z" />
         </clipPath>
         <clipPath id="clip1">
-          <path fill="#F8F8F2" transform="translate(61)" d="M0 0h138v36H0z" />
+          <path fill="#fff" transform="translate(61)" d="M0 0h138v36H0z" />
         </clipPath>
       </defs>
     </svg>

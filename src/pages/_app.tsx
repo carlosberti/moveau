@@ -5,15 +5,18 @@ import NextNprogress from 'nextjs-progressbar'
 import { DefaultSeo } from 'next-seo'
 
 import GlobalStyles from 'styles/global'
-import { darkTheme } from 'styles/theme'
+import { darkTheme, lightTheme } from 'styles/theme'
 import SEO from '../../next-seo.config'
 import ReactAxe from 'utils/react-axe'
+import { useDarkMode } from 'store'
 
 ReactAxe()
 
 function App({ Component, pageProps }: AppProps) {
+  const isDarkMode = useDarkMode((state) => state.darkMode)
+
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
       <Head>
         <link rel="shortcut icon" href="/assets/img/icon-512.png" />
         <link rel="apple-touch-icon" href="/assets/img/icon-512.png" />

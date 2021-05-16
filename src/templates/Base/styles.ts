@@ -23,6 +23,43 @@ export const Header = styled.header`
     > div {
       display: flex;
       align-items: center;
+
+      > input {
+        appearance: none;
+        width: 4rem;
+        height: 1.6rem;
+        display: inline-block;
+        margin-left: auto;
+        position: relative;
+        border-radius: 5rem;
+        overflow: hidden;
+        border: none;
+        cursor: pointer;
+        background-color: ${theme.colors.white};
+        transition: background-color ease 0.3s;
+
+        &:before {
+          content: '';
+          display: block;
+          position: absolute;
+          width: 1.4rem;
+          height: 1.4rem;
+          background: ${theme.colors.background};
+          left: 0.1rem;
+          top: 0.1rem;
+          border-radius: 50%;
+          transition: all cubic-bezier(0.3, 1.5, 0.7, 1) 0.3s;
+        }
+
+        &:checked {
+          background-color: ${theme.colors.background};
+        }
+
+        &:checked:before {
+          background: ${theme.colors.white};
+          left: 2.4rem;
+        }
+      }
     }
 
     @media screen and (min-width: 768px) {

@@ -8,15 +8,4 @@ describe('<Logo />', () => {
 
     expect(screen.getByLabelText(/movieau/i)).toBeInTheDocument()
   })
-
-  it('should render a bigger logo without text if hideOnMobile', () => {
-    render(<Logo hideOnMobile />)
-    expect(screen.getByLabelText(/movieau/i).parentElement).toHaveStyleRule(
-      'width',
-      '4.2rem',
-      {
-        media: 'screen and (max-width: 600px)'
-      }
-    )
-  })
 })

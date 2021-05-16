@@ -1,6 +1,16 @@
 import { MovieCardProps } from 'components/MovieCard'
 import create from 'zustand'
 
+type DarkMode = {
+  darkMode: boolean
+  setDarkMode: () => void
+}
+
+export const useDarkMode = create<DarkMode>((set) => ({
+  darkMode: true,
+  setDarkMode: () => set((state) => ({ darkMode: !state.darkMode }))
+}))
+
 export type MoviePopupProps = {
   img: string
   name: string
