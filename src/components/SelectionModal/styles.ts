@@ -2,14 +2,14 @@ import styled, { css } from 'styled-components'
 
 import { Wrapper } from 'components/MovieCardsGrid/styles'
 
-export const Content = styled.div`
-  ${({ theme }) => css`
+export const Content = styled.div<{ isOpen: boolean }>`
+  ${({ theme, isOpen }) => css`
     position: fixed;
     background-color: ${theme.colors.background};
     display: flex;
     flex-direction: column;
-    width: 95%;
     height: 90%;
+    width: 95%;
     max-height: 77rem;
     max-width: 32rem;
     padding: 1.6rem 0;
@@ -19,6 +19,11 @@ export const Content = styled.div`
     border: 0.1rem solid;
     border-image: ${theme.colors.purpleCyan};
     box-shadow: 6px 6px 6px 4px rgba(0, 0, 0, 0.75);
+    transform: translateX(20%);
+    transition: transform 0.3s ease-in-out, opacity 0.4s ease-in-out;
+    opacity: ${isOpen ? 1 : 0};
+    transform: ${isOpen ? 'translateX(0)' : 'translateX(20%)'};
+    pointer-events: ${isOpen ? 'all' : 'none'};
   `}
 `
 

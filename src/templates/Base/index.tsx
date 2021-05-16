@@ -44,20 +44,16 @@ const Base = ({ children }: BaseTemplateProps) => {
           buttonText="watch later"
         />
       </s.FloatButtons>
-      {favourites.isOpen && (
-        <SelectionModal
-          title="favourites"
-          buttonText="clear favourites"
-          store={useFavouriteStore}
-        />
-      )}
-      {watchLater.isOpen && (
-        <SelectionModal
-          title="watch later"
-          buttonText="clear watch later"
-          store={useWatchLaterStore}
-        />
-      )}
+      <SelectionModal
+        title="favourites"
+        buttonText="clear favourites"
+        store={useFavouriteStore}
+      />
+      <SelectionModal
+        title="watch later"
+        buttonText="clear watch later"
+        store={useWatchLaterStore}
+      />
       <s.Header>
         <Container>
           <Link href="/" passHref>
