@@ -6,14 +6,17 @@ describe('getHomeMovies()', () => {
   it('should getHomeMovies', async () => {
     const response = await getHomeMovies({ page: 1 })
 
-    expect(response).toStrictEqual([
-      {
-        id: 1,
-        title: 'req_title',
-        poster_path: 'req_poster_path',
-        overview: 'req_overview'
-      }
-    ])
+    expect(response).toStrictEqual({
+      results: [
+        {
+          id: 1,
+          title: 'req_title',
+          poster_path: 'req_poster_path',
+          overview: 'req_overview'
+        }
+      ],
+      total_pages: '1'
+    })
   })
 })
 

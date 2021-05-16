@@ -14,12 +14,6 @@ jest.mock('components/MovieCardsGrid', () => {
   }
 })
 
-const mockIntersectionObserver = jest.fn()
-mockIntersectionObserver.mockReturnValue({
-  observe: () => null
-})
-window.IntersectionObserver = mockIntersectionObserver
-
 describe('<Home />', () => {
   beforeEach(() => {
     jest.useFakeTimers()
@@ -29,16 +23,14 @@ describe('<Home />', () => {
   })
 
   it('should render correctly', () => {
-    render(<Home movies={movies} />)
+    render(<Home movies={movies} pageSize={1} />)
 
     expect(screen.getByRole('textbox')).toBeInTheDocument()
     expect(screen.getByTestId('Mock MovieCardsGrid')).toBeInTheDocument()
-    expect(screen.getByLabelText('Loading more')).toBeInTheDocument()
-    expect(window.IntersectionObserver).toHaveBeenCalled()
   })
 
   it('should have typed keys on input', async () => {
-    render(<Home movies={movies} />)
+    render(<Home movies={movies} pageSize={1} />)
 
     const input = screen.getByRole('textbox')
 
