@@ -45,6 +45,7 @@ describe('<Movie />', () => {
 
     expect(push).not.toHaveBeenCalled()
   })
+
   it('should render correctly', () => {
     useRouter.mockImplementation(() => ({
       isFallback: false,
@@ -79,13 +80,36 @@ describe('<Movie />', () => {
       isFavourite: jest.fn(() => true)
     }))
 
-    render(<Movie {...props} />)
+    render(
+      <Movie
+        {...props}
+        overview=""
+        videos={[{ site: 'YouTube', key: 'any_key', type: 'any_type' }]}
+      />
+    )
 
     const FavouriteButton = screen.getByLabelText(/Click to favourite/i)
 
     userEvent.click(FavouriteButton)
 
     expect(setFavourite).toHaveBeenCalled()
+  })
+
+  it('should call setIsopen if favourites is open', async () => {
+    const useFavouriteStore = jest.spyOn(require('store'), 'useFavouriteStore')
+
+    const setIsOpen = jest.fn()
+
+    useFavouriteStore.mockImplementation(() => ({
+      setFavourite: jest.fn(),
+      isFavourite: jest.fn(() => true),
+      isOpen: true,
+      setIsOpen
+    }))
+
+    render(<Movie {...props} />)
+
+    expect(setIsOpen).toHaveBeenCalled()
   })
 
   it('should add to watchlater store on watch later button click', async () => {
@@ -108,6 +132,26 @@ describe('<Movie />', () => {
     userEvent.click(watchLaterButton)
 
     expect(setWatchLater).toHaveBeenCalled()
+  })
+
+  it('should call setIsopen if watchlater is open', async () => {
+    const useWatchLaterStore = jest.spyOn(
+      require('store'),
+      'useWatchLaterStore'
+    )
+
+    const setIsOpen = jest.fn()
+
+    useWatchLaterStore.mockImplementation(() => ({
+      setWatchLater: jest.fn(),
+      isWatchLater: jest.fn(() => true),
+      isOpen: true,
+      setIsOpen
+    }))
+
+    render(<Movie {...props} />)
+
+    expect(setIsOpen).toHaveBeenCalled()
   })
 
   it('should return loading if isFallback is true', () => {
