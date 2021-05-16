@@ -92,16 +92,18 @@ const MoviePopup = () => {
               </s.TextWrapper>
             </s.TopWrapper>
             {movie.video && (
-              <iframe
-                width="430"
-                height="287"
-                src={`https://www.youtube.com/embed/${movie.video}`}
-                title="Movie video"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                aria-label={`${movie.name} trailer`}
-              ></iframe>
+              <s.VideoWrapper>
+                <iframe
+                  width="430"
+                  height="287"
+                  src={`https://www.youtube.com/embed/${movie.video}`}
+                  title="Movie video"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  aria-label={`${movie.name} trailer`}
+                ></iframe>
+              </s.VideoWrapper>
             )}
           </s.Content>
         </>

@@ -40,30 +40,12 @@ export const Content = styled.div`
     border: 0.1rem solid;
     border-image: ${theme.colors.border.poster};
 
-    > iframe {
-      margin-top: 2.4rem;
-      align-self: center;
-      width: 100%;
-      height: 22rem;
-      box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.75);
-      border: 0.1rem solid;
-      border-image: ${theme.colors.border.wallpaper};
-    }
-
     @media screen and (min-width: 500px) {
       padding: 1.6rem;
-      > iframe {
-        width: 100%;
-        height: 30rem;
-      }
     }
 
     @media screen and (min-width: 768px) {
       padding: 2.4rem;
-      > iframe {
-        width: 100%;
-        height: 40rem;
-      }
     }
   `}
 `
@@ -234,6 +216,47 @@ export const TextWrapper = styled.div`
 
       > h3 {
         font-size: 1.6rem;
+      }
+    }
+  `}
+`
+
+export const VideoWrapper = styled.div`
+  ${({ theme }) => css`
+    margin-top: 2.4rem;
+    background-image: ${theme.colors.shimmer};
+    animation: placeolderShimmer 1s linear infinite forwards;
+
+    > iframe {
+      align-self: center;
+      width: 100%;
+      height: 22rem;
+      box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.75);
+      border: 0.1rem solid;
+      border-image: ${theme.colors.border.wallpaper};
+    }
+
+    @media screen and (min-width: 500px) {
+      > iframe {
+        width: 100%;
+        height: 30rem;
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      > iframe {
+        width: 100%;
+        height: 40rem;
+      }
+    }
+
+    @keyframes placeolderShimmer {
+      0% {
+        background-position: -40rem 0;
+      }
+
+      100% {
+        background-position: 40rem 0;
       }
     }
   `}
