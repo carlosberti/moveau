@@ -107,8 +107,10 @@ export const IconsWrapper = styled.div<IconsWrapper>`
       ${favourite && iconModiffier.favourite(theme)}
       ${watchLater && iconModiffier.watchLater(theme)}
 
-      width: 2.4rem;
-      height: 2.4rem;
+      > div > svg {
+        width: 2.4rem;
+        height: 2.4rem;
+      }
 
       &:hover,
       &:focus {

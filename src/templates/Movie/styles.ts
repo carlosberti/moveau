@@ -81,8 +81,10 @@ export const IconsWrapper = styled.div<IconsWrapper>`
       ${favourite && iconModiffier.favourite(theme)}
       ${watchLater && iconModiffier.watchLater(theme)}
 
-      width: 1.6rem;
-      height: 1.6rem;
+      > div > svg {
+        width: 1.6rem;
+        height: 1.6rem;
+      }
 
       &:hover,
       &:focus {
@@ -94,7 +96,7 @@ export const IconsWrapper = styled.div<IconsWrapper>`
       width: 8rem;
       margin-left: 2.4rem;
 
-      > button {
+      > button > div > svg {
         width: 3.2rem;
         height: 3.2rem;
       }

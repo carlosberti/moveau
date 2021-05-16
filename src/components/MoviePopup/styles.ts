@@ -131,8 +131,10 @@ export const IconsWrapper = styled.div<IconsWrapper>`
       ${favourite && iconModiffier.favourite(theme)}
       ${watchLater && iconModiffier.watchLater(theme)}
 
-      width: 1.8rem;
-      height: 1.8rem;
+      > div > svg {
+        width: 1.8rem;
+        height: 1.8rem;
+      }
 
       &:hover,
       &:focus {
@@ -141,13 +143,13 @@ export const IconsWrapper = styled.div<IconsWrapper>`
     }
 
     @media screen and (min-width: 768px) {
-      > button {
+      > button > div > svg {
         width: 2.4rem;
         height: 2.4rem;
       }
     }
     @media screen and (min-width: 1024px) {
-      > button {
+      > button > div > svg {
         width: 3.2rem;
         height: 3.2rem;
       }
