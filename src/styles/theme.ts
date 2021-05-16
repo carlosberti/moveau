@@ -23,7 +23,7 @@ export const darkTheme = {
     overlay: 20,
     alwaysOnTop: 30
   }
-} as const
+}
 
 export const lightTheme = {
   colors: {
@@ -50,4 +50,4 @@ export const lightTheme = {
     overlay: 20,
     alwaysOnTop: 30
   }
-} as const
+}
