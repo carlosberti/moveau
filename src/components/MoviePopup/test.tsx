@@ -36,7 +36,7 @@ describe('<MoviePopup />', () => {
     expect(screen.getByRole('link', { name: /go to/i })).toBeInTheDocument()
     expect(
       screen
-        .getByLabelText('Click to close')
+        .getAllByLabelText('Click to close')[0]
         .parentElement!.getAttribute('aria-hidden')
     ).toBe('false')
   })
@@ -95,6 +95,18 @@ describe('<MoviePopup />', () => {
     expect(setFavourite).toHaveBeenCalled()
   })
 
+  it('should close when close button is clicked', () => {
+    useMovieStore.setState({ movie: movie })
+    render(<MoviePopup />)
+
+    expect(screen.getByLabelText('Click to close icon')).toBeInTheDocument()
+
+    userEvent.click(screen.getByLabelText('Click to close icon'))
+    expect(
+      screen.queryByLabelText('Click to close icon')
+    ).not.toBeInTheDocument()
+  })
+
   it('should close when overlay is clicked', () => {
     useMovieStore.setState({ movie: undefined })
     render(<MoviePopup />)
@@ -102,7 +114,7 @@ describe('<MoviePopup />', () => {
     expect(screen.queryByLabelText('Click to close')).not.toBeInTheDocument()
 
     useMovieStore.setState({ movie: movie })
-    const openelement = screen.getByLabelText('Click to close')
+    const openelement = screen.getAllByLabelText('Click to close')[0]
     expect(openelement).toBeInTheDocument()
 
     userEvent.click(openelement)
