@@ -1,7 +1,24 @@
 import { renderHook } from '@testing-library/react-hooks'
 import { act } from 'react-dom/test-utils'
 
-import { useMovieStore, useFavouriteStore, useWatchLaterStore } from '.'
+import {
+  useDarkMode,
+  useMovieStore,
+  useFavouriteStore,
+  useWatchLaterStore
+} from '.'
+
+describe('useDarkMode()', () => {
+  it('change darkMode value if setDarkMode is called', () => {
+    const { result } = renderHook(() => useDarkMode())
+
+    expect(result.current.darkMode).toBeFalsy()
+
+    act(() => result.current.setDarkMode())
+
+    expect(result.current.darkMode).toBeTruthy()
+  })
+})
 
 describe('useMovieStore()', () => {
   it('should add movie if addmovie is called', () => {
