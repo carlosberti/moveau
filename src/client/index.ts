@@ -137,7 +137,7 @@ export const getMovieDetails = async ({
       ? watchProviders.value.data.results.SE?.buy
         ? watchProviders.value.data.results.SE.buy
         : watchProviders.value.data.results.SE?.rent
-        ? watchProviders.value.data.results.SE?.rent
+        ? watchProviders.value.data.results.SE.rent
         : []
       : []
 
