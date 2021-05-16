@@ -25,7 +25,7 @@ export const Content = styled.div`
 export const MoviesWrapper = styled.div`
   margin-top: 0.8rem;
   max-height: 82%;
-  overflow-y: scroll;
+  overflow: auto;
 
   ${Wrapper} {
     margin: 1.6rem 1.2rem 0;
