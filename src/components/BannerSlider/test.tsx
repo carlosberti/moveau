@@ -25,4 +25,12 @@ describe('<BannerSlider />', () => {
       screen.getByRole('img', { name: /aladdin/i, hidden: false })
     ).toBeInTheDocument()
   })
+
+  it('should render not foud img if no path is passed', () => {
+    render(<BannerSlider name="any_name" path={[]} />)
+
+    expect(
+      screen.getByRole('img', { name: /image not found/i, hidden: false })
+    ).toHaveAttribute('src', '/assets/img/not-found.jpg')
+  })
 })

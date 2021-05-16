@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import 'next-image.mock'
 import { render, screen, waitFor } from 'utils/test-utils'
 import userEvent from '@testing-library/user-event'
@@ -57,6 +58,36 @@ describe('<MoviePopup />', () => {
       expect(favouriteButton).toHaveStyle('color: yellow')
       expect(watchLaterButton).toHaveStyle('color: yellow')
     })
+  })
+
+  it('should handle watchLater and favourite buttons', () => {
+    const useWatchLaterStore = jest.spyOn(
+      require('store'),
+      'useWatchLaterStore'
+    )
+
+    const setWatchLater = jest.fn()
+
+    useWatchLaterStore.mockImplementation(() => ({
+      setWatchLater,
+      isWatchLater: jest.fn(() => true)
+    }))
+
+    const useFavouriteStore = jest.spyOn(require('store'), 'useFavouriteStore')
+
+    const setFavourite = jest.fn()
+
+    useFavouriteStore.mockImplementation(() => ({
+      setFavourite,
+      isFavourite: jest.fn(() => true)
+    }))
+    render(<MoviePopup />)
+
+    userEvent.click(screen.getByLabelText(/click to favourite/i))
+    userEvent.click(screen.getByLabelText(/click to watch later/i))
+
+    expect(setWatchLater).toHaveBeenCalled()
+    expect(setFavourite).toHaveBeenCalled()
   })
 
   it('should close when overlay is clicked', () => {

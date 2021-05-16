@@ -89,4 +89,51 @@ describe('movieDetailsMapper()', () => {
       poster_path: 'https://image.tmdb.org/t/p/w300/any_path'
     })
   })
+
+  it('should return not-found image when poster_path is not provided', () => {
+    const movie: MovieDetailsResponse = {
+      title: 'any_title',
+      overview: 'any_overview',
+      images: [
+        {
+          path: 'any_path'
+        }
+      ],
+      videos: [
+        {
+          key: 'any_key',
+          type: 'any_type',
+          site: 'any_site'
+        }
+      ],
+      watchProviders: ['any_provider'],
+      production_companies: [
+        {
+          name: 'any_company'
+        }
+      ],
+      poster_path: ''
+    }
+
+    expect(movieDetailsMapper({ id: 1, movie })).toStrictEqual({
+      id: 1,
+      name: 'any_title',
+      overview: 'any_overview',
+      images: [
+        {
+          path: 'any_path'
+        }
+      ],
+      videos: [
+        {
+          key: 'any_key',
+          type: 'any_type',
+          site: 'any_site'
+        }
+      ],
+      watchProviders: ['any_provider'],
+      companies: ['any_company'],
+      poster_path: '/assets/img/not-found.jpg'
+    })
+  })
 })
