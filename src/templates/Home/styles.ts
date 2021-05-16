@@ -42,7 +42,7 @@ const spinningAnimation = keyframes`
 
 export const LoadingSpinner = styled.div`
   ${({ theme }) => css`
-    margin: 6.4rem 0 3.2rem;
+    margin: 6.4rem auto 3.2rem;
     width: 4rem;
     height: 4rem;
     border-radius: 50%;

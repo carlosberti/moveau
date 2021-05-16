@@ -14,7 +14,8 @@ export const handlers = [
             poster_path: 'req_poster_path',
             overview: 'req_overview'
           }
-        ]
+        ],
+        total_pages: '1'
       })
     )
   }),

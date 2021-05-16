@@ -23,11 +23,12 @@ export type HomeMoviesResponse = {
 
 type HomeMoviesData = {
   results: HomeMoviesResponse[]
+  total_pages: number
 }
 
 export const getHomeMovies = async ({
   page
-}: HomeMoviesProps): Promise<HomeMoviesResponse[]> => {
+}: HomeMoviesProps): Promise<HomeMoviesData> => {
   const response = await axios.get<HomeMoviesData>(
     `${BASE_MOVIE_URL}/popular`,
     {
@@ -39,7 +40,7 @@ export const getHomeMovies = async ({
     }
   )
 
-  return response.data.results
+  return response.data
 }
 
 type VideosProps = {

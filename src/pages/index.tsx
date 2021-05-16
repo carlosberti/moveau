@@ -12,7 +12,8 @@ export const getStaticProps = async () => {
   return {
     revalidate: 21600,
     props: {
-      movies: homeMoviesMapper(movies)
+      movies: homeMoviesMapper(movies.results),
+      pageSize: movies.total_pages
     }
   }
 }
