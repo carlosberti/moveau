@@ -12,7 +12,7 @@ export const homeMoviesMapper = (movies: HomeMoviesResponse[]) =>
 
 type MovieDetailsMapperProps = {
   movie: MovieDetailsResponse
-  id: string
+  id: number
 }
 
 export const movieDetailsMapper = ({ id, movie }: MovieDetailsMapperProps) => ({

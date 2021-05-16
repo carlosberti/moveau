@@ -15,7 +15,7 @@ type HomeMoviesProps = {
 }
 
 export type HomeMoviesResponse = {
-  id: string
+  id: number
   title: string
   poster_path: string
   overview: string
@@ -43,7 +43,7 @@ export const getHomeMovies = async ({
 }
 
 type VideosProps = {
-  id: string
+  id: number
 }
 
 type VideosResponse = {
@@ -68,7 +68,7 @@ export const getVideos = async ({
 }
 
 type MovieDetailsProps = {
-  id: string
+  id: number
 }
 
 type MovieDetails = {
@@ -164,7 +164,7 @@ type SearchMoviesProps = {
 }
 
 export type SearchMoviesResponse = {
-  id: string
+  id: number
   title: string
   poster_path: string
   overview: string

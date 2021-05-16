@@ -20,7 +20,7 @@ jest.mock('components/MovieInfos', () => {
 })
 
 const props: MovieTemplateProps = {
-  id: '1',
+  id: 1,
   name: 'any_name',
   images: [
     {

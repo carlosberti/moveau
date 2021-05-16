@@ -8,7 +8,7 @@ describe('getHomeMovies()', () => {
 
     expect(response).toStrictEqual([
       {
-        id: '1',
+        id: 1,
         title: 'req_title',
         poster_path: 'req_poster_path',
         overview: 'req_overview'
@@ -19,7 +19,7 @@ describe('getHomeMovies()', () => {
 
 describe('getVideos()', () => {
   it('should getVideos', async () => {
-    const response = await getVideos({ id: '1' })
+    const response = await getVideos({ id: 1 })
 
     expect(response).toStrictEqual([
       {
@@ -33,7 +33,7 @@ describe('getVideos()', () => {
 
 describe('getMovieDetails()', () => {
   it('should getMovieDetails', async () => {
-    const response = await getMovieDetails({ id: '1' })
+    const response = await getMovieDetails({ id: 1 })
 
     expect(response).toStrictEqual({
       title: 'req_title',
@@ -67,7 +67,7 @@ describe('getSearchMovies()', () => {
     expect(response).toStrictEqual({
       results: [
         {
-          id: '1',
+          id: 1,
           title: 'req_title',
           poster_path: 'req_poster_path',
           overview: 'req_overview'

@@ -9,36 +9,36 @@ export const decorators = [
     const addMovie = useMovieStore(state => state.addMovie)
     const setFavourite = useFavouriteStore(state => state.setFavourite)
     const favourites = [{
-      id: '278',
+      id: 278,
       img: '/assets/img/aladdin.jpeg',
       name: 'Aladdin',
     },{
-      id: '280',
+      id: 280,
       img: '/assets/img/aladdin.jpeg',
       name: 'Aladdin',
     },{
-      id: '281',
+      id: 281,
       img: '/assets/img/aladdin.jpeg',
       name: 'Aladdin',
     },{
-      id: '282',
+      id: 282,
       img: '/assets/img/aladdin.jpeg',
       name: 'Aladdin',
     },{
-      id: '283',
+      id: 283,
       img: '/assets/img/aladdin.jpeg',
       name: 'Aladdin',
     },{
-      id: '284',
+      id: 284,
       img: '/assets/img/aladdin.jpeg',
       name: 'Aladdin',
     },{
-      id: '285',
+      id: 285,
       img: '/assets/img/aladdin.jpeg',
       name: 'Aladdin',
     }]
     addMovie({
-      id: '278',
+      id: 278,
       img: '/assets/img/aladdin.jpeg',
       name: 'Aladdin',
       overview: ',jahsgdf asldjfh adjlsfh asjldfh asldjfh asdhjlf lasjdh',

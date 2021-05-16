@@ -12,7 +12,7 @@ import Arrow from 'components/Arrow'
 import * as s from './styles'
 
 export type MovieCardProps = {
-  id: string
+  id: number
   img: string
   name: string
   overview: string

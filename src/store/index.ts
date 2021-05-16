@@ -6,7 +6,7 @@ export type MoviePopupProps = {
   name: string
   overview: string
   video: string | false
-  id: string
+  id: number
 }
 
 type MovieStore = {
@@ -27,7 +27,7 @@ export type FavouriteStore = {
   setItems: (favourite: MovieCardProps) => void
   clearItems: () => void
   setIsOpen: () => void
-  isItem: (id: string) => boolean
+  isItem: (id: number) => boolean
 }
 
 export const useFavouriteStore = create<FavouriteStore>((set, get) => ({
@@ -46,7 +46,7 @@ export const useFavouriteStore = create<FavouriteStore>((set, get) => ({
   },
   clearItems: () => set({ items: undefined }),
   setIsOpen: () => set((state) => ({ isOpen: !state.isOpen })),
-  isItem: (id: string): boolean => {
+  isItem: (id: number): boolean => {
     const { items } = get()
 
     const isFavourite = items?.find((item) => item.id === id)
@@ -61,7 +61,7 @@ export type WatchLaterStore = {
   setItems: (watchLater: MovieCardProps) => void
   clearItems: () => void
   setIsOpen: () => void
-  isItem: (id: string) => boolean
+  isItem: (id: number) => boolean
 }
 
 export const useWatchLaterStore = create<WatchLaterStore>((set, get) => ({
@@ -80,7 +80,7 @@ export const useWatchLaterStore = create<WatchLaterStore>((set, get) => ({
   },
   clearItems: () => set({ items: undefined }),
   setIsOpen: () => set((state) => ({ isOpen: !state.isOpen })),
-  isItem: (id: string): boolean => {
+  isItem: (id: number): boolean => {
     const { items } = get()
 
     const isFavourite = items?.find((item) => item.id === id)

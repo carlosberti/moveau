@@ -19,13 +19,15 @@ interface Params extends ParsedUrlQuery {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { id } = params as Params
 
-  const response = await getMovieDetails({ id })
+  const numberId = +id
+
+  const response = await getMovieDetails({ id: numberId })
 
   if (!response) {
     return { notFound: true }
   }
 
   return {
-    props: movieDetailsMapper({ id, movie: response })
+    props: movieDetailsMapper({ id: numberId, movie: response })
   }
 }

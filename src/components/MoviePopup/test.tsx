@@ -6,7 +6,7 @@ import MoviePopup from '.'
 import { useMovieStore } from 'store'
 
 const movie = {
-  id: '1',
+  id: 1,
   name: 'any_name',
   img: '/any_img',
   overview: 'any_overview',

@@ -21,7 +21,7 @@ type VideosResponse = {
 }
 
 export type MovieTemplateProps = {
-  id: string
+  id: number
   name: string
   overview: string
   images: ImagesResponse[]
@@ -44,11 +44,15 @@ const Movie = ({
   const router = useRouter()
   const favourite = useFavouriteStore((state) => ({
     setFavourite: state.setItems,
-    isFavourite: state.isItem
+    isFavourite: state.isItem,
+    setIsOpen: state.setIsOpen,
+    isOpen: state.isOpen
   }))
   const watchLater = useWatchLaterStore((state) => ({
     setWatchLater: state.setItems,
-    isWatchLater: state.isItem
+    isWatchLater: state.isItem,
+    setIsOpen: state.setIsOpen,
+    isOpen: state.isOpen
   }))
   const removeMovie = useMovieStore((state) => state.removeMovie)
 
@@ -73,6 +77,8 @@ const Movie = ({
   useEffect(() => {
     document.querySelector('body')!.style.overflow = 'auto'
     removeMovie()
+    favourite.isOpen && favourite.setIsOpen()
+    watchLater.isOpen && watchLater.setIsOpen()
   }, [])
 
   if (router.isFallback) {

@@ -7,7 +7,7 @@ import MovieCard from '.'
 import userEvent from '@testing-library/user-event'
 
 const props = {
-  id: '1',
+  id: 1,
   img: '/any_path',
   name: 'Aladdin',
   overview: 'any_overview'

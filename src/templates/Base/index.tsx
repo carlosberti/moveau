@@ -14,13 +14,16 @@ export type BaseTemplateProps = {
 const Base = ({ children }: BaseTemplateProps) => {
   const favourites = useFavouriteStore((state) => ({
     setIsOpen: state.setIsOpen,
-    isOpen: state.isOpen
+    isOpen: state.isOpen,
+    favourite: state.items
   }))
 
   const watchLater = useWatchLaterStore((state) => ({
     setIsOpen: state.setIsOpen,
     isOpen: state.isOpen
   }))
+
+  console.log(favourites.favourite)
 
   const handleFavouritesClick = () => {
     favourites.setIsOpen()

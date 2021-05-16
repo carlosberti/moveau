@@ -9,7 +9,7 @@ export const handlers = [
       ctx.json({
         results: [
           {
-            id: '1',
+            id: 1,
             title: 'req_title',
             poster_path: 'req_poster_path',
             overview: 'req_overview'
@@ -76,7 +76,7 @@ export const handlers = [
       ctx.json({
         results: [
           {
-            id: '1',
+            id: 1,
             title: 'req_title',
             poster_path: 'req_poster_path',
             overview: 'req_overview'

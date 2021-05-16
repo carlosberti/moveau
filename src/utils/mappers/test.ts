@@ -5,7 +5,7 @@ describe('homeMoviesMapper()', () => {
   it('should return the right format when mapped', () => {
     const movies: HomeMoviesResponse[] = [
       {
-        id: '1',
+        id: 1,
         poster_path: 'any_path',
         title: 'any_title',
         overview: 'any_overview'
@@ -14,7 +14,7 @@ describe('homeMoviesMapper()', () => {
 
     expect(homeMoviesMapper(movies)).toStrictEqual([
       {
-        id: '1',
+        id: 1,
         img: 'https://image.tmdb.org/t/p/w300/any_path',
         name: 'any_title',
         overview: 'any_overview'
@@ -25,7 +25,7 @@ describe('homeMoviesMapper()', () => {
   it('should return not-found image when poster_path is not provided', () => {
     const movies = [
       {
-        id: '1',
+        id: 1,
         title: 'any_title',
         overview: 'any_overview'
       }
@@ -33,7 +33,7 @@ describe('homeMoviesMapper()', () => {
 
     expect(homeMoviesMapper(movies as HomeMoviesResponse[])).toStrictEqual([
       {
-        id: '1',
+        id: 1,
         img: '/assets/img/not-found.jpg',
         name: 'any_title',
         overview: 'any_overview'
@@ -68,8 +68,8 @@ describe('movieDetailsMapper()', () => {
       poster_path: 'any_path'
     }
 
-    expect(movieDetailsMapper({ id: '1', movie })).toStrictEqual({
-      id: '1',
+    expect(movieDetailsMapper({ id: 1, movie })).toStrictEqual({
+      id: 1,
       name: 'any_title',
       overview: 'any_overview',
       images: [
