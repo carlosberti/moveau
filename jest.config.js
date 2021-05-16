@@ -10,6 +10,7 @@ module.exports = {
     '!src/utils/react-axe.ts',
     '!src/types/**/*.d.ts',
     '!src/components/Analytics/index.tsx',
+    '!src/client/index.ts',
     '!src/**/mock.ts'
   ],
   coverageThreshold: {
