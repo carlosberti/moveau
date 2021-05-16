@@ -5,7 +5,8 @@ import MovieInfos from '.'
 const props = {
   title: 'any_title',
   items: ['any_item'],
-  color: 'white'
+  color: 'white',
+  notFoundMessage: 'any_message'
 }
 
 describe('<MovieInfos />', () => {
@@ -20,6 +21,6 @@ describe('<MovieInfos />', () => {
   it('should render not found if no items', () => {
     render(<MovieInfos {...props} items={[]} />)
 
-    expect(screen.getByText(/players not found/i)).toBeInTheDocument()
+    expect(screen.getByText(/any_message/i)).toBeInTheDocument()
   })
 })
