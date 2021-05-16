@@ -179,13 +179,16 @@ export const TextWrapper = styled.div`
       justify-self: flex-end;
       font-size: 1rem;
       text-align: center;
-      padding: 0.8rem;
       background: transparent;
       margin-top: auto;
       width: 100%;
       cursor: pointer;
 
       > a {
+        padding: 0.8rem;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
         text-decoration: none;
         color: ${theme.colors.white};
       }
