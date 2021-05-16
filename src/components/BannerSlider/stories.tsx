@@ -8,23 +8,10 @@ export default {
     layout: 'fullscreen'
   },
   args: {
-    items: [
-      {
-        name: 'Aladdin',
-        path: 'https://image.tmdb.org/t/p/original/RA2FjGBj1zMEEblkcXkpTthXzK.jpg'
-      },
-      {
-        name: 'Aladdin',
-        path: 'https://image.tmdb.org/t/p/original/RA2FjGBj1zMEEblkcXkpTthXzK.jpg'
-      },
-      {
-        name: 'Aladdin',
-        path: 'K_tLp7T6U1c'
-      },
-      {
-        name: 'Aladdin',
-        path: 'K_tLp7T6U1c'
-      }
+    name: 'Aladdin',
+    path: [
+      'https://image.tmdb.org/t/p/original/RA2FjGBj1zMEEblkcXkpTthXzK.jpg',
+      'K_tLp7T6U1c'
     ]
   }
 } as Meta
