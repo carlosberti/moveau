@@ -2,7 +2,7 @@
 import { render, screen } from 'utils/test-utils'
 import { UseStore } from 'zustand'
 
-import { FavouriteStore } from 'store'
+import { Common } from 'store'
 
 import SelectionModal from '.'
 import userEvent from '@testing-library/user-event'
@@ -20,7 +20,7 @@ const setIsOpen = jest.fn()
 const clearItems = jest.fn()
 
 //@ts-ignore
-const useFavouriteStore: UseStore<FavouriteStore> = () => ({
+const useFavouriteStore: UseStore<Common> = () => ({
   setIsOpen,
   items: [],
   isOpen: true,
@@ -34,7 +34,7 @@ const props = {
 }
 
 //@ts-ignore
-const useFavouriteStoreNoItems: UseStore<FavouriteStore> = () => ({
+const useFavouriteStoreNoItems: UseStore<Common> = () => ({
   setIsOpen,
   items: undefined,
   clearItems,

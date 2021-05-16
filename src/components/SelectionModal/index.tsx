@@ -1,13 +1,13 @@
 import { UseStore } from 'zustand'
 
 import MovieCardsGrid from 'components/MovieCardsGrid'
-import type { WatchLaterStore, FavouriteStore } from 'store'
+import type { Common } from 'store'
 import * as s from './styles'
 
 export type SelectionModalProps = {
   title: string
   buttonText: string
-  store: UseStore<WatchLaterStore | FavouriteStore>
+  store: UseStore<Common>
 }
 
 const SelectionModal = ({ title, buttonText, store }: SelectionModalProps) => {

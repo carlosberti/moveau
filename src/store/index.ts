@@ -21,7 +21,7 @@ export const useMovieStore = create<MovieStore>((set) => ({
   removeMovie: () => set({ movie: undefined })
 }))
 
-type Factory = {
+export type Common = {
   items: undefined | MovieCardProps[]
   isOpen: boolean
   setItems: (item: MovieCardProps) => void
@@ -31,7 +31,7 @@ type Factory = {
 }
 
 const storeFactory = () =>
-  create<Factory>((set, get) => ({
+  create<Common>((set, get) => ({
     items: undefined,
     isOpen: false,
     setItems: (newItem: MovieCardProps) => {
