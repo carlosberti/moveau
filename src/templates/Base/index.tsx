@@ -62,7 +62,7 @@ const Base = ({ children }: BaseTemplateProps) => {
         <Container>
           <Link href="/" passHref>
             <s.LogoWrapper>
-              <Logo hideOnMobile />
+              <Logo />
             </s.LogoWrapper>
           </Link>
         </Container>

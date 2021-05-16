@@ -27,7 +27,7 @@ export const Header = styled.header`
 `
 
 export const LogoWrapper = styled.a`
-  width: 16rem;
+  display: inline-block;
 `
 
 export const Content = styled.div`
