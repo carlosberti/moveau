@@ -11,7 +11,6 @@ import Star from 'components/Star'
 import { useFavouriteStore, useMovieStore, useWatchLaterStore } from 'store'
 import Base from 'templates/Base'
 import * as s from './styles'
-import image from 'next/image'
 
 type ImagesResponse = {
   file_path: string
