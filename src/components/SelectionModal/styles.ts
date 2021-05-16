@@ -63,6 +63,10 @@ export const TitleWrapper = styled.div`
       width: 1.6rem;
       height: 1.6rem;
       cursor: pointer;
+
+      path {
+        stroke: ${theme.colors.white};
+      }
     }
   `}
 `

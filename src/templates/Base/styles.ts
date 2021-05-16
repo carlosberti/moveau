@@ -45,19 +45,19 @@ export const Header = styled.header`
           width: 1.4rem;
           height: 1.4rem;
           background: ${theme.colors.background};
-          left: 0.1rem;
+          left: 0.2rem;
           top: 0.1rem;
           border-radius: 50%;
           transition: all cubic-bezier(0.3, 1.5, 0.7, 1) 0.3s;
         }
 
         &:checked {
-          background-color: ${theme.colors.background};
+          background-color: ${theme.colors.white};
         }
 
         &:checked:before {
-          background: ${theme.colors.white};
-          left: 2.4rem;
+          background: ${theme.colors.background};
+          left: 2.5rem;
         }
       }
     }

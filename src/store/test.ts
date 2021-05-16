@@ -12,11 +12,11 @@ describe('useDarkMode()', () => {
   it('change darkMode value if setDarkMode is called', () => {
     const { result } = renderHook(() => useDarkMode())
 
-    expect(result.current.darkMode).toBeFalsy()
+    expect(result.current.darkMode).toBeTruthy()
 
     act(() => result.current.setDarkMode())
 
-    expect(result.current.darkMode).toBeTruthy()
+    expect(result.current.darkMode).toBeFalsy()
   })
 })
 

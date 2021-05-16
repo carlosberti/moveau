@@ -47,6 +47,10 @@ export const Content = styled.div`
       height: 1.6rem;
       cursor: pointer;
       margin-left: auto;
+
+      path {
+        stroke: ${theme.colors.white};
+      }
     }
 
     @media screen and (min-width: 500px) {

@@ -7,7 +7,7 @@ type DarkMode = {
 }
 
 export const useDarkMode = create<DarkMode>((set) => ({
-  darkMode: false,
+  darkMode: true,
   setDarkMode: () => set((state) => ({ darkMode: !state.darkMode }))
 }))
 
