@@ -37,7 +37,7 @@ const MoviePopup = () => {
     })
   }
 
-  const handleOverlayClick = () => {
+  const handleCloseClick = () => {
     document.querySelector('body')!.style.overflow = 'auto'
     removeMovie()
   }
@@ -47,12 +47,31 @@ const MoviePopup = () => {
       {movie && (
         <>
           <s.Overlay
-            onClick={handleOverlayClick}
+            onClick={handleCloseClick}
+            title="Click to close"
             aria-label="Click to close"
             // eslint-disable-next-line jsx-a11y/no-autofocus
             autoFocus
           />
           <s.Content>
+            <button
+              onClick={handleCloseClick}
+              title="Click to close icon"
+              aria-label="Click to close icon"
+            >
+              <svg
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 17 17"
+                aria-label="Close icon"
+              >
+                <path
+                  d="M1 1l7.25 7.25 7.25 7.25M15.5 1L8.25 8.25 1 15.5"
+                  stroke="#F8F8F2"
+                  strokeWidth="1.5"
+                />
+              </svg>
+            </button>
             <s.TopWrapper>
               <s.LeftWrapper>
                 <img
