@@ -170,6 +170,7 @@ export const TextWrapper = styled.div`
     display: flex;
     flex-direction: column;
     margin-left: 1.2rem;
+    height: 14.4rem;
     > h2,
     > h3 {
       color: ${theme.colors.white};
@@ -178,6 +179,7 @@ export const TextWrapper = styled.div`
     > h3 {
       margin-top: 0.8rem;
       margin-bottom: 1.6rem;
+      overflow: auto;
     }
 
     > button {
@@ -208,6 +210,7 @@ export const TextWrapper = styled.div`
     }
 
     @media screen and (min-width: 500px) {
+      height: 17.2rem;
       > h2 {
         font-size: 1.8rem;
       }
@@ -219,6 +222,7 @@ export const TextWrapper = styled.div`
 
     @media screen and (min-width: 768px) {
       margin-left: 1.8rem;
+      height: 28.7rem;
 
       > button {
         font-size: 1.6rem;
