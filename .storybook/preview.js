@@ -7,7 +7,7 @@ import {useMovieStore, useFavouriteStore} from 'store'
 export const decorators = [
   (Story) => {
     const addMovie = useMovieStore(state => state.addMovie)
-    const setFavourite = useFavouriteStore(state => state.setFavourite)
+    const setFavourite = useFavouriteStore(state => state.setItems)
     const favourites = [{
       id: 278,
       img: '/assets/img/aladdin.jpeg',
