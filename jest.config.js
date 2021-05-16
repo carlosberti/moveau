@@ -9,6 +9,7 @@ module.exports = {
     '!src/styles/**/*.ts',
     '!src/utils/react-axe.ts',
     '!src/types/**/*.d.ts',
+    '!src/components/Analytics/index.tsx',
     '!src/**/mock.ts'
   ],
   coverageThreshold: {
