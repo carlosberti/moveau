@@ -5,7 +5,6 @@ export const Wrapper = styled.div`
     max-width: 67.6rem;
     margin: 0px auto;
     background-image: ${theme.colors.shimmer};
-    height: max-content;
     animation: placeolderShimmer 3s linear infinite forwards;
 
     > div {

@@ -44,7 +44,6 @@ export const ImageBox = styled.div`
     display: flex;
     background-color: ${theme.colors.white};
     background-image: ${theme.colors.shimmer};
-    height: max-content;
     animation: placeolderShimmer 1s linear infinite forwards;
     box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
     transition: box-shadow 0.3s ease;
