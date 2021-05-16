@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://movieau.carlosberti.dev
+
+# Sitemaps
+Sitemap: https://movieau.carlosberti.dev/sitemap.xml
