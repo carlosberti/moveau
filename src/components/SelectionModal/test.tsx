@@ -41,15 +41,18 @@ const useFavouriteStoreNoItems: UseStore<Common> = () => ({
   isOpen: true
 })
 
+//@ts-ignore
+const useFavouriteStoreNotOpen: UseStore<Common> = () => ({
+  setIsOpen,
+  items: undefined,
+  clearItems,
+  isOpen: true
+})
+
 describe('<SelectionModal />', () => {
   it('should render correctly with items', () => {
     render(<SelectionModal {...props} />)
 
-    expect(
-      screen
-        .getByLabelText(/click to close/i)
-        .parentElement?.parentElement!.getAttribute('aria-hidden')
-    ).toBe('false')
     expect(screen.getByLabelText(/close icon/i)).toBeInTheDocument()
     expect(screen.getByTestId('Mock MovieCardsGrid')).toBeInTheDocument()
     expect(screen.getByLabelText(/click to clear items/i)).toBeInTheDocument()
@@ -59,6 +62,11 @@ describe('<SelectionModal />', () => {
   it('should render not items found if no items', () => {
     render(<SelectionModal {...props} store={useFavouriteStoreNoItems} />)
 
+    expect(
+      screen
+        .getByLabelText(/click to close/i)
+        .parentElement?.parentElement!.getAttribute('aria-hidden')
+    ).toBe('false')
     expect(screen.getByText(/no items found/i)).toBeInTheDocument()
   })
 
@@ -76,5 +84,15 @@ describe('<SelectionModal />', () => {
     userEvent.click(screen.getByLabelText(/click to clear/i))
 
     expect(clearItems).toHaveBeenCalledTimes(1)
+  })
+
+  it('should have aria-hidden true is isOpen is false', () => {
+    render(<SelectionModal {...props} store={useFavouriteStoreNotOpen} />)
+
+    expect(
+      screen
+        .getByLabelText(/click to close/i)
+        .parentElement?.parentElement!.getAttribute('aria-hidden')
+    ).toBe('false')
   })
 })
