@@ -23,8 +23,6 @@ const Base = ({ children }: BaseTemplateProps) => {
     isOpen: state.isOpen
   }))
 
-  console.log(favourites.favourite)
-
   const handleFavouritesClick = () => {
     favourites.setIsOpen()
   }
