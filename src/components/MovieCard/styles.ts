@@ -25,7 +25,7 @@ export const Content = styled.button`
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
-      /* max-width: fit-content; */
+      overflow-wrap: anywhere;
     }
 
     &:hover,

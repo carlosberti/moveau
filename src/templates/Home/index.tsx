@@ -29,12 +29,10 @@ const Home = ({ movies, pageSize }: HomeTemplateProps) => {
 
   const getMoreMovies = async () => {
     const nextPage = page + 1
-    if (nextPage <= totalPages) {
-      const movies = await moviesToGet(nextPage)
-      const newMovies = movies ? homeMoviesMapper(movies) : []
-      setMoviesToShow((moviesToShow) => [...moviesToShow, ...newMovies])
-      setPage(nextPage)
-    }
+    const movies = await moviesToGet(nextPage)
+    const newMovies = movies ? homeMoviesMapper(movies) : []
+    setMoviesToShow((moviesToShow) => [...moviesToShow, ...newMovies])
+    setPage(nextPage)
   }
 
   const handleInputChange = async (e: ChangeEvent<HTMLInputElement>) => {
