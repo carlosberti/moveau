@@ -111,7 +111,7 @@ type ImagesResponse = {
   [path: string]: string
 }
 
-export type MovieDetailsResponse = MovieDetails & {
+export type MovieDetailsData = MovieDetails & {
   images: ImagesResponse[]
   videos: VideosResponse[]
   watchProviders: string[]
@@ -119,7 +119,7 @@ export type MovieDetailsResponse = MovieDetails & {
 
 export const getMovieDetails = async ({
   id
-}: MovieDetailsProps): Promise<MovieDetailsResponse | undefined> => {
+}: MovieDetailsProps): Promise<MovieDetailsData | undefined> => {
   const [details, images, videos, watchProviders] = await Promise.allSettled([
     axios.get<MovieDetails>(`${BASE_MOVIE_URL}/${id}`, config),
     axios.get<Images>(`${BASE_MOVIE_URL}/${id}/images`, config),
