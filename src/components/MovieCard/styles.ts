@@ -13,7 +13,7 @@ export const Content = styled.button`
     background: transparent;
     cursor: pointer;
     transition: transform 0.3s ease;
-    /* min-width: fit-content; */
+    will-change: transform;
 
     > p {
       display: -webkit-box;
@@ -52,15 +52,8 @@ export const ImageBox = styled.div`
     border: 0.1rem solid;
     border-image: ${theme.colors.border.poster};
 
-    > img {
-      /* transition: border 0.3s ease; */
-    }
-
     &:hover,
     &:focus {
-      > img {
-        /* border: 0.1rem solid #ffffff; */
-      }
       box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.75);
     }
 
