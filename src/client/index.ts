@@ -93,6 +93,9 @@ type Options = {
   rent: {
     provider_name: string
   }[]
+  flatrate: {
+    provider_name: string
+  }[]
 }
 
 type Language = {
@@ -138,6 +141,8 @@ export const getMovieDetails = async ({
         ? watchProviders.value.data.results.SE.buy
         : watchProviders.value.data.results.SE?.rent
         ? watchProviders.value.data.results.SE.rent
+        : watchProviders.value.data.results.SE?.flatrate
+        ? watchProviders.value.data.results.SE.flatrate
         : []
       : []
 
