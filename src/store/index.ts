@@ -21,70 +21,46 @@ export const useMovieStore = create<MovieStore>((set) => ({
   removeMovie: () => set({ movie: undefined })
 }))
 
-export type FavouriteStore = {
+type Factory = {
   items: undefined | MovieCardProps[]
   isOpen: boolean
-  setItems: (favourite: MovieCardProps) => void
+  setItems: (item: MovieCardProps) => void
   clearItems: () => void
   setIsOpen: () => void
   isItem: (id: number) => boolean
 }
 
-export const useFavouriteStore = create<FavouriteStore>((set, get) => ({
-  items: undefined,
-  isOpen: false,
-  setItems: (favourite: MovieCardProps) => {
-    const { items, isItem } = get()
+const storeFactory = () =>
+  create<Factory>((set, get) => ({
+    items: undefined,
+    isOpen: false,
+    setItems: (newItem: MovieCardProps) => {
+      const { items, isItem } = get()
 
-    const newFavourites = items
-      ? isItem(favourite.id)
-        ? items.filter((item) => item.id !== favourite.id)
-        : [...items, favourite]
-      : [favourite]
+      const newItems = items
+        ? isItem(newItem.id)
+          ? items.filter((item) => item.id !== newItem.id)
+          : [...items, newItem]
+        : [newItem]
 
-    set({ items: [...newFavourites] })
-  },
-  clearItems: () => set({ items: undefined }),
-  setIsOpen: () => set((state) => ({ isOpen: !state.isOpen })),
-  isItem: (id: number): boolean => {
-    const { items } = get()
+      if (newItems.length === 0) {
+        set({ items: undefined })
+        return
+      }
 
-    const isFavourite = items?.find((item) => item.id === id)
+      set({ items: [...newItems] })
+    },
+    clearItems: () => set({ items: undefined }),
+    setIsOpen: () => set((state) => ({ isOpen: !state.isOpen })),
+    isItem: (id: number): boolean => {
+      const { items } = get()
 
-    return !!isFavourite
-  }
-}))
+      const isItem = items?.find((item) => item.id === id)
 
-export type WatchLaterStore = {
-  items: undefined | MovieCardProps[]
-  isOpen: boolean
-  setItems: (watchLater: MovieCardProps) => void
-  clearItems: () => void
-  setIsOpen: () => void
-  isItem: (id: number) => boolean
-}
+      return !!isItem
+    }
+  }))
 
-export const useWatchLaterStore = create<WatchLaterStore>((set, get) => ({
-  items: undefined,
-  isOpen: false,
-  setItems: (watchLater: MovieCardProps) => {
-    const { items, isItem } = get()
+export const useFavouriteStore = storeFactory()
 
-    const newWatchLater = items
-      ? isItem(watchLater.id)
-        ? items.filter((item) => item.id !== watchLater.id)
-        : [...items, watchLater]
-      : [watchLater]
-
-    set({ items: [...newWatchLater] })
-  },
-  clearItems: () => set({ items: undefined }),
-  setIsOpen: () => set((state) => ({ isOpen: !state.isOpen })),
-  isItem: (id: number): boolean => {
-    const { items } = get()
-
-    const isFavourite = items?.find((item) => item.id === id)
-
-    return !!isFavourite
-  }
-}))
+export const useWatchLaterStore = storeFactory()
