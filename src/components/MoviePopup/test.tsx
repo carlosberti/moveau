@@ -34,6 +34,11 @@ describe('<MoviePopup />', () => {
     ).toBeInTheDocument()
     expect(screen.getByLabelText(/any_name trailer/i)).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /go to/i })).toBeInTheDocument()
+    expect(
+      screen
+        .getByLabelText('Click to close')
+        .parentElement!.getAttribute('aria-hidden')
+    ).toBe('false')
   })
 
   it('should change icons color on click', () => {
@@ -99,10 +104,8 @@ describe('<MoviePopup />', () => {
     useMovieStore.setState({ movie: movie })
     const openelement = screen.getByLabelText('Click to close')
     expect(openelement).toBeInTheDocument()
-    expect(openelement.getAttribute('aria-hidden')).toBe('false')
 
     userEvent.click(openelement)
-
     expect(screen.queryByLabelText('Click to close')).not.toBeInTheDocument()
   })
 })
