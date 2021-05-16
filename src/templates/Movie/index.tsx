@@ -126,6 +126,7 @@ const Movie = ({
                 title="You can watch on:"
                 color="#FF80BF"
                 items={watchProviders}
+                notFoundMessage="no players found"
               />
             </div>
             <div>
@@ -133,6 +134,7 @@ const Movie = ({
                 title="Production companies:"
                 color="#FFCA80"
                 items={companies}
+                notFoundMessage="no companies found"
               />
             </div>
           </s.MovieInfos>

@@ -16,7 +16,8 @@ export default {
       'Rakuten TV',
       'Viaplay'
     ],
-    color: 'white'
+    color: 'white',
+    notFoundMessage: 'not found'
   }
 } as Meta
 
