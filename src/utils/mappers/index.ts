@@ -1,4 +1,4 @@
-import { HomeMoviesResponse, MovieDetailsResponse } from 'client'
+import { HomeMoviesResponse, MovieDetailsData } from 'client'
 
 export const homeMoviesMapper = (movies: HomeMoviesResponse[]) =>
   movies.map((movie) => ({
@@ -11,7 +11,7 @@ export const homeMoviesMapper = (movies: HomeMoviesResponse[]) =>
   }))
 
 type MovieDetailsMapperProps = {
-  movie: MovieDetailsResponse
+  movie: MovieDetailsData
   id: number
 }
 

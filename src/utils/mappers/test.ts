@@ -1,4 +1,4 @@
-import { HomeMoviesResponse, MovieDetailsResponse } from 'client'
+import { HomeMoviesResponse, MovieDetailsData } from 'client'
 import { homeMoviesMapper, movieDetailsMapper } from '.'
 
 describe('homeMoviesMapper()', () => {
@@ -44,7 +44,7 @@ describe('homeMoviesMapper()', () => {
 
 describe('movieDetailsMapper()', () => {
   it('should return the right format when mapped', () => {
-    const movie: MovieDetailsResponse = {
+    const movie: MovieDetailsData = {
       title: 'any_title',
       overview: 'any_overview',
       images: [
@@ -91,7 +91,7 @@ describe('movieDetailsMapper()', () => {
   })
 
   it('should return not-found image when poster_path is not provided', () => {
-    const movie: MovieDetailsResponse = {
+    const movie: MovieDetailsData = {
       title: 'any_title',
       overview: 'any_overview',
       images: [
