@@ -15,7 +15,7 @@ export const Content = styled.div`
     padding: 1.6rem 0;
     bottom: 5%;
     right: 5%;
-    z-index: ${theme.layers.alwaysOnTop};
+    z-index: 25;
     border: 0.1rem solid;
     border-image: ${theme.colors.purpleCyan};
     box-shadow: 6px 6px 6px 4px rgba(0, 0, 0, 0.75);
