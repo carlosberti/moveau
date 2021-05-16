@@ -1,14 +1,17 @@
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
+import slugify from 'slugify'
+import { NextSeo } from 'next-seo'
+
 import Arrow from 'components/Arrow'
 import BannerSlider from 'components/BannerSlider'
 import { Container } from 'components/Container'
 import MovieInfos from 'components/MovieInfos'
 import Star from 'components/Star'
-import { useRouter } from 'next/router'
-import { useEffect } from 'react'
-import slugify from 'slugify'
 import { useFavouriteStore, useMovieStore, useWatchLaterStore } from 'store'
 import Base from 'templates/Base'
 import * as s from './styles'
+import image from 'next/image'
 
 type ImagesResponse = {
   file_path: string
@@ -97,56 +100,73 @@ const Movie = ({
   }
 
   return (
-    <Base>
-      <BannerSlider name={name} path={concatImagesAndVideos()} />
-      <Container>
-        <s.Content>
-          <s.TextWrapper>
-            <div>
-              <h1>{name}</h1>
-              <s.IconsWrapper
-                watchLater={watchLater.isWatchLater(id)}
-                favourite={favourite.isFavourite(id)}
-              >
-                <button
-                  onClick={handleFavouriteClick}
-                  title="Click to favourite"
-                  aria-label="Click to favourite"
+    <>
+      <NextSeo
+        title={name}
+        description={overview?.slice(0, 30) || 'A amazing movie!'}
+        openGraph={{
+          url: `https://movieau.carlosberti.dev/${id}/${slugify(name)}`,
+          images: [
+            {
+              url: concatImagesAndVideos()[0],
+              width: 1920,
+              height: 1080,
+              alt: name
+            }
+          ]
+        }}
+      />
+      <Base>
+        <BannerSlider name={name} path={concatImagesAndVideos()} />
+        <Container>
+          <s.Content>
+            <s.TextWrapper>
+              <div>
+                <h1>{name}</h1>
+                <s.IconsWrapper
+                  watchLater={watchLater.isWatchLater(id)}
+                  favourite={favourite.isFavourite(id)}
                 >
-                  <Star />
-                </button>
-                <button
-                  onClick={handleWatchLaterClick}
-                  title="Click to watch later"
-                  aria-label="Click to watch later"
-                >
-                  <Arrow />
-                </button>
-              </s.IconsWrapper>
-            </div>
-            <h2>{overview}</h2>
-          </s.TextWrapper>
-          <s.MovieInfos>
-            <div>
-              <MovieInfos
-                title="You can watch on:"
-                color="#FF80BF"
-                items={watchProviders}
-                notFoundMessage="no players found"
-              />
-            </div>
-            <div>
-              <MovieInfos
-                title="Production companies:"
-                color="#FFCA80"
-                items={companies}
-                notFoundMessage="no companies found"
-              />
-            </div>
-          </s.MovieInfos>
-        </s.Content>
-      </Container>
-    </Base>
+                  <button
+                    onClick={handleFavouriteClick}
+                    title="Click to favourite"
+                    aria-label="Click to favourite"
+                  >
+                    <Star />
+                  </button>
+                  <button
+                    onClick={handleWatchLaterClick}
+                    title="Click to watch later"
+                    aria-label="Click to watch later"
+                  >
+                    <Arrow />
+                  </button>
+                </s.IconsWrapper>
+              </div>
+              <h2>{overview}</h2>
+            </s.TextWrapper>
+            <s.MovieInfos>
+              <div>
+                <MovieInfos
+                  title="You can watch on:"
+                  color="#FF80BF"
+                  items={watchProviders}
+                  notFoundMessage="no players found"
+                />
+              </div>
+              <div>
+                <MovieInfos
+                  title="Production companies:"
+                  color="#FFCA80"
+                  items={companies}
+                  notFoundMessage="no companies found"
+                />
+              </div>
+            </s.MovieInfos>
+          </s.Content>
+        </Container>
+      </Base>
+    </>
   )
 }
 export default Movie

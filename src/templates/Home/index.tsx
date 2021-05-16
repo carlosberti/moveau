@@ -1,6 +1,7 @@
 import { ChangeEvent, useRef, useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroller'
 import slugify from 'slugify'
+import { NextSeo } from 'next-seo'
 
 import Base from 'templates/Base'
 import { Container } from 'components/Container'
@@ -60,28 +61,38 @@ const Home = ({ movies, pageSize }: HomeTemplateProps) => {
   }
 
   return (
-    <Base>
-      <Container>
-        <s.Input
-          placeholder="Search for movies"
-          onChange={handleInputChange}
-          // eslint-disable-next-line jsx-a11y/no-autofocus
-          autoFocus
-        />
-        <s.MovieCards>
-          <InfiniteScroll
-            pageStart={0}
-            loadMore={getMoreMovies}
-            hasMore={page < totalPages}
-            loader={<s.LoadingSpinner />}
-            useWindow={true}
-            threshold={50}
-          >
-            <MovieCardsGrid movies={moviesToShow} />
-          </InfiniteScroll>
-        </s.MovieCards>
-      </Container>
-    </Base>
+    <>
+      <NextSeo
+        title="movieau"
+        description="A simple platform where you can search for movies, add it to favourites, to watch later and see informatiosn about it"
+        canonical="https://movieau.carlosberti.dev/"
+        openGraph={{
+          url: `https://movieau.carlosberti.dev/`
+        }}
+      />
+      <Base>
+        <Container>
+          <s.Input
+            placeholder="Search for movies"
+            onChange={handleInputChange}
+            // eslint-disable-next-line jsx-a11y/no-autofocus
+            autoFocus
+          />
+          <s.MovieCards>
+            <InfiniteScroll
+              pageStart={0}
+              loadMore={getMoreMovies}
+              hasMore={page < totalPages}
+              loader={<s.LoadingSpinner />}
+              useWindow={true}
+              threshold={50}
+            >
+              <MovieCardsGrid movies={moviesToShow} />
+            </InfiniteScroll>
+          </s.MovieCards>
+        </Container>
+      </Base>
+    </>
   )
 }
 
