@@ -43,17 +43,16 @@ const MoviePopup = () => {
   }
 
   return (
-    <>
+    <s.Wrapper isOpen={!!movie} aria-hidden={!movie}>
       {movie && (
         <>
           <s.Overlay
-            aria-hidden={!movie}
             onClick={handleOverlayClick}
             aria-label="Click to close"
             // eslint-disable-next-line jsx-a11y/no-autofocus
             autoFocus
           />
-          <s.Content aria-hidden={!movie}>
+          <s.Content>
             <s.TopWrapper>
               <s.LeftWrapper>
                 <img
@@ -107,7 +106,7 @@ const MoviePopup = () => {
           </s.Content>
         </>
       )}
-    </>
+    </s.Wrapper>
   )
 }
 export default MoviePopup

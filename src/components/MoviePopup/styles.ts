@@ -1,23 +1,32 @@
 import styled, { css, DefaultTheme } from 'styled-components'
 
-export const Overlay = styled.button`
-  ${({ theme }) => css`
-    background: rgba(0, 0, 0, 0.5);
+export const Wrapper = styled.div<{ isOpen: boolean }>`
+  ${({ theme, isOpen }) => css`
     position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: ${theme.layers.overlay};
-    width: 100%;
     height: 100%;
-    backdrop-filter: blur(1.2rem);
+    width: 100%;
+    transition: opacity 0.4s ease-in-out;
+    opacity: ${isOpen ? 1 : 0};
+    pointer-events: ${isOpen ? 'all' : 'none'};
+    z-index: ${theme.layers.alwaysOnTop};
   `}
+`
+
+export const Overlay = styled.button`
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(1.2rem);
 `
 
 export const Content = styled.div`
   ${({ theme }) => css`
-    position: fixed;
+    position: absolute;
     background-color: ${theme.colors.background};
     display: flex;
     flex-direction: column;
@@ -28,7 +37,6 @@ export const Content = styled.div`
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    z-index: ${theme.layers.alwaysOnTop};
     border: 0.1rem solid;
     border-image: ${theme.colors.border.poster};
 
