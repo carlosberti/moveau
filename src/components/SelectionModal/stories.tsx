@@ -1,4 +1,5 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
+import { useFavouriteStore } from 'store'
 import SelectionModal, { SelectionModalProps } from '.'
 
 export default {
@@ -9,7 +10,9 @@ export default {
   },
   args: {
     title: 'favourites',
-    buttonText: 'clear favourites'
+    buttonText: 'clear favourites',
+    store: useFavouriteStore.getState,
+    key: 'favourites'
   }
 } as Meta
 
