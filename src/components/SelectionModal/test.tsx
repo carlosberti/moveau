@@ -30,6 +30,7 @@ const useFavouriteStore: UseStore<Common> = () => ({
 const props = {
   title: 'any_title',
   buttonText: 'any_text',
+  storageKey: 'any_key',
   store: useFavouriteStore
 }
 

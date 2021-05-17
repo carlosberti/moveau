@@ -7,10 +7,16 @@ import * as s from './styles'
 export type SelectionModalProps = {
   title: string
   buttonText: string
+  storageKey: string
   store: UseStore<Common>
 }
 
-const SelectionModal = ({ title, buttonText, store }: SelectionModalProps) => {
+const SelectionModal = ({
+  title,
+  buttonText,
+  store,
+  storageKey
+}: SelectionModalProps) => {
   const item = store()
   return (
     <s.Content isOpen={item.isOpen} aria-hidden={!item.isOpen}>
@@ -43,7 +49,7 @@ const SelectionModal = ({ title, buttonText, store }: SelectionModalProps) => {
           <s.ClearButton
             title="Click to clear items"
             aria-label="Click to clear items"
-            onClick={item.clearItems}
+            onClick={() => item.clearItems(storageKey)}
           >
             {buttonText}
           </s.ClearButton>

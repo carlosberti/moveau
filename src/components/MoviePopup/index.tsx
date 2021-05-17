@@ -20,21 +20,27 @@ const MoviePopup = () => {
   const removeMovie = useMovieStore((state) => state.removeMovie)
 
   const handleFavouriteClick = () => {
-    favourite.setFavourite({
-      id: movie!.id,
-      name: movie!.name,
-      img: movie!.img,
-      overview: movie!.overview
-    })
+    favourite.setFavourite(
+      {
+        id: movie!.id,
+        name: movie!.name,
+        img: movie!.img,
+        overview: movie!.overview
+      },
+      'favourites'
+    )
   }
 
   const handleWatchLaterClick = () => {
-    watchLater.setWatchLater({
-      id: movie!.id,
-      name: movie!.name,
-      img: movie!.img,
-      overview: movie!.overview
-    })
+    watchLater.setWatchLater(
+      {
+        id: movie!.id,
+        name: movie!.name,
+        img: movie!.img,
+        overview: movie!.overview
+      },
+      'watchLater'
+    )
   }
 
   const handleCloseClick = () => {

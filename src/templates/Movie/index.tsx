@@ -59,11 +59,17 @@ const Movie = ({
   const removeMovie = useMovieStore((state) => state.removeMovie)
 
   const handleFavouriteClick = () => {
-    favourite.setFavourite({ id, img: poster_path, name, overview })
+    favourite.setFavourite(
+      { id, img: poster_path, name, overview },
+      'favourites'
+    )
   }
 
   const handleWatchLaterClick = () => {
-    watchLater.setWatchLater({ id, img: poster_path, name, overview })
+    watchLater.setWatchLater(
+      { id, img: poster_path, name, overview },
+      'watchLater'
+    )
   }
 
   useEffect(() => {

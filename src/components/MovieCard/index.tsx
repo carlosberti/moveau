@@ -58,11 +58,11 @@ const MovieCard = ({
   }
 
   const handleFavouriteClick = () => {
-    favourite.setFavourite({ id, img, name, overview })
+    favourite.setFavourite({ id, img, name, overview }, 'favourites')
   }
 
   const handleWatchLaterClick = () => {
-    watchLater.setWatchLater({ id, img, name, overview })
+    watchLater.setWatchLater({ id, img, name, overview }, 'watchLater')
   }
 
   return (
@@ -74,7 +74,7 @@ const MovieCard = ({
         tabIndex={movie ? -1 : 0}
       >
         <s.ImageBox>
-          <Image src={img} alt={name} width={width} height={height} />
+          {img && <Image src={img} alt={name} width={width} height={height} />}
         </s.ImageBox>
         <p>{name}</p>
       </s.Content>

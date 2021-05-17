@@ -45,7 +45,7 @@ export const decorators = [
       video: 'ur9GKLl8v4U'
     })
 
-    favourites.map(favourite => setFavourite(favourite))
+    favourites.map(favourite => setFavourite(favourite, 'favourites'))
 
 
     return (

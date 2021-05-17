@@ -1,10 +1,13 @@
+import { useEffect } from 'react'
+import Link from 'next/link'
+
 import { Container } from 'components/Container'
 import Logo from 'components/Logo'
 import MoviePopup from 'components/MoviePopup'
 import SelectionButton from 'components/SelectionButton'
 import SelectionModal from 'components/SelectionModal'
-import Link from 'next/link'
 import { useDarkMode, useFavouriteStore, useWatchLaterStore } from 'store'
+import { getStorageItem } from 'utils/localStorage'
 import * as s from './styles'
 
 export type BaseTemplateProps = {
@@ -15,12 +18,14 @@ const Base = ({ children }: BaseTemplateProps) => {
   const favourites = useFavouriteStore((state) => ({
     setIsOpen: state.setIsOpen,
     isOpen: state.isOpen,
-    favourite: state.items
+    favourite: state.items,
+    setFavourites: state.setItemsFromStorage
   }))
 
   const watchLater = useWatchLaterStore((state) => ({
     setIsOpen: state.setIsOpen,
-    isOpen: state.isOpen
+    isOpen: state.isOpen,
+    setWatchLater: state.setItemsFromStorage
   }))
 
   const darkMode = useDarkMode((state) => state.setDarkMode)
@@ -36,6 +41,18 @@ const Base = ({ children }: BaseTemplateProps) => {
   const handleOnChange = () => {
     darkMode()
   }
+
+  useEffect(() => {
+    const favouritesLocal = getStorageItem('favourites')
+    const watchLaterLocal = getStorageItem('watchLater')
+
+    if (favouritesLocal) {
+      favourites.setFavourites(favouritesLocal, 'favourites')
+    }
+    if (watchLaterLocal) {
+      watchLater.setWatchLater(watchLaterLocal, 'watchLater')
+    }
+  }, [])
 
   return (
     <s.Wrapper>
@@ -53,11 +70,13 @@ const Base = ({ children }: BaseTemplateProps) => {
       <SelectionModal
         title="favourites"
         buttonText="clear favourites"
+        storageKey="favourites"
         store={useFavouriteStore}
       />
       <SelectionModal
         title="watch later"
         buttonText="clear watch later"
+        storageKey="watchLater"
         store={useWatchLaterStore}
       />
       <s.Header>

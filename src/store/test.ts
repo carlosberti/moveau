@@ -52,7 +52,7 @@ describe('useFavouriteStore()', () => {
   afterEach(() => {
     const store = useFavouriteStore
 
-    act(() => store.getState().clearItems())
+    act(() => store.getState().clearItems('key'))
   })
   it('should set items if setItems is called', () => {
     const { result } = renderHook(() => useFavouriteStore())
@@ -66,7 +66,7 @@ describe('useFavouriteStore()', () => {
 
     expect(result.current.items).toBeUndefined()
 
-    act(() => result.current.setItems(movie))
+    act(() => result.current.setItems(movie, 'key'))
 
     expect(result.current.items).toStrictEqual([movie])
   })
@@ -81,11 +81,11 @@ describe('useFavouriteStore()', () => {
       img: 'any_img'
     }
 
-    act(() => result.current.setItems(movie))
+    act(() => result.current.setItems(movie, 'key'))
 
     expect(result.current.items).toStrictEqual([movie])
 
-    act(() => result.current.setItems(movie))
+    act(() => result.current.setItems(movie, 'key'))
 
     expect(result.current.items).toBeUndefined()
   })
@@ -106,11 +106,11 @@ describe('useFavouriteStore()', () => {
       img: 'any_img'
     }
 
-    act(() => result.current.setItems(movie))
+    act(() => result.current.setItems(movie, 'key'))
 
     expect(result.current.items).toStrictEqual([movie])
 
-    act(() => result.current.setItems(movie2))
+    act(() => result.current.setItems(movie2, 'key'))
 
     expect(result.current.items).toStrictEqual([movie, movie2])
   })
@@ -125,11 +125,11 @@ describe('useFavouriteStore()', () => {
       img: 'any_img'
     }
 
-    act(() => result.current.setItems(movie))
+    act(() => result.current.setItems(movie, 'key'))
 
     expect(result.current.items).toStrictEqual([movie])
 
-    act(() => result.current.clearItems())
+    act(() => result.current.clearItems('key'))
 
     expect(result.current.items).toBeUndefined()
   })
@@ -149,7 +149,7 @@ describe('useWatchLaterStore()', () => {
   afterEach(() => {
     const store = useWatchLaterStore
 
-    act(() => store.getState().clearItems())
+    act(() => store.getState().clearItems('key'))
   })
   it('should set items if setItems is called', () => {
     const { result } = renderHook(() => useWatchLaterStore())
@@ -163,7 +163,7 @@ describe('useWatchLaterStore()', () => {
 
     expect(result.current.items).toBeUndefined()
 
-    act(() => result.current.setItems(movie))
+    act(() => result.current.setItems(movie, 'key'))
 
     expect(result.current.items).toStrictEqual([movie])
   })
@@ -178,11 +178,11 @@ describe('useWatchLaterStore()', () => {
       img: 'any_img'
     }
 
-    act(() => result.current.setItems(movie))
+    act(() => result.current.setItems(movie, 'key'))
 
     expect(result.current.items).toStrictEqual([movie])
 
-    act(() => result.current.setItems(movie))
+    act(() => result.current.setItems(movie, 'key'))
 
     expect(result.current.items).toBeUndefined()
   })
@@ -203,11 +203,11 @@ describe('useWatchLaterStore()', () => {
       img: 'any_img'
     }
 
-    act(() => result.current.setItems(movie))
+    act(() => result.current.setItems(movie, 'key'))
 
     expect(result.current.items).toStrictEqual([movie])
 
-    act(() => result.current.setItems(movie2))
+    act(() => result.current.setItems(movie2, 'key'))
 
     expect(result.current.items).toStrictEqual([movie, movie2])
   })
@@ -222,11 +222,11 @@ describe('useWatchLaterStore()', () => {
       img: 'any_img'
     }
 
-    act(() => result.current.setItems(movie))
+    act(() => result.current.setItems(movie, 'key'))
 
     expect(result.current.items).toStrictEqual([movie])
 
-    act(() => result.current.clearItems())
+    act(() => result.current.clearItems('key'))
 
     expect(result.current.items).toBeUndefined()
   })
