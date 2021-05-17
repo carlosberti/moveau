@@ -9,8 +9,8 @@ A simple platform where you can search for movies, add it to favourites, to watc
 
 ## Project links
 
-- [WebApp](https://movieau.carlosberti.dev/)
-- [StoryBook](https://storybook.movieau.carlosberti.dev/)
+- [WebApp](https://movieau.carlosberti.dev/){:target="_blank"}
+- [StoryBook](https://storybook.movieau.carlosberti.dev/){:target="_blank"}
 
 ## Installation
 
