@@ -8,7 +8,7 @@ Feel free to contribute with whatever you want: write issues, improve features o
 
 - Fork this repository into your device
 - Code the solution that you are proposing
-- Commit to your branch using [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/){:target="_blank"} guide
+- Commit to your branch using [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) guide
 - Open a Pull Request and wait
 
 Please make sure you're paying attention to project's lint.
