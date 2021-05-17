@@ -6,11 +6,15 @@ A simple platform where you can search for movies, add it to favourites, to watc
 
 ![image](https://user-images.githubusercontent.com/22118601/118424621-ebf8bd80-b69d-11eb-9b28-a4979dbf796d.png)
 
+## Demo
+  You can find a demo [here](https://youtu.be/XzXRRQehz98)
+
 
 ## Project links
 
 - [WebApp](https://movieau.carlosberti.dev/)
 - [StoryBook](https://storybook.movieau.carlosberti.dev/)
+- [figma](https://www.figma.com/file/bcSff7DbWLJohFszgffg2W/movieau?node-id=0%3A1)
 
 ## Installation
 
