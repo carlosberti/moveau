@@ -33,6 +33,8 @@ export const Content = styled.div`
     justify-content: space-between;
     width: 90%;
     max-width: 80rem;
+    max-height: 90%;
+    overflow: auto;
     padding: 0.8rem;
     left: 50%;
     top: 50%;
