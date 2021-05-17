@@ -41,7 +41,7 @@ const SelectionModal = ({
           </svg>
         </button>
       </s.TitleWrapper>
-      {item.items ? (
+      {item.items && item.items.length > 0 ? (
         <>
           <s.MoviesWrapper>
             <MovieCardsGrid movies={item.items} />
