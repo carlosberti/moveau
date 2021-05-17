@@ -8,6 +8,7 @@ export const decorators = [
   (Story) => {
     const addMovie = useMovieStore(state => state.addMovie)
     const setFavourite = useFavouriteStore(state => state.setItems)
+    const setIsOpen = useFavouriteStore(state => state.setIsOpen)
     const favourites = [{
       id: 278,
       img: '/assets/img/aladdin.jpeg',
@@ -46,6 +47,7 @@ export const decorators = [
     })
 
     favourites.map(favourite => setFavourite(favourite, 'favourites'))
+    setIsOpen()
 
 
     return (
