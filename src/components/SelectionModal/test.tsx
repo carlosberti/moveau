@@ -22,7 +22,9 @@ const clearItems = jest.fn()
 //@ts-ignore
 const useFavouriteStore: UseStore<Common> = () => ({
   setIsOpen,
-  items: [],
+  items: [
+    { id: 1, img: 'any_img', name: 'any_name', overview: 'any_overview' }
+  ],
   isOpen: true,
   clearItems
 })
@@ -52,7 +54,7 @@ const useFavouriteStoreNotOpen: UseStore<Common> = () => ({
 
 describe('<SelectionModal />', () => {
   it('should render correctly with items', () => {
-    render(<SelectionModal {...props} />)
+    render(<SelectionModal {...props} store={useFavouriteStore} />)
 
     expect(screen.getByLabelText(/close icon/i)).toBeInTheDocument()
     expect(screen.getByTestId('Mock MovieCardsGrid')).toBeInTheDocument()
@@ -80,7 +82,7 @@ describe('<SelectionModal />', () => {
   })
 
   it('should call clearItems if clear items button is clicked', () => {
-    render(<SelectionModal {...props} />)
+    render(<SelectionModal {...props} store={useFavouriteStore} />)
 
     userEvent.click(screen.getByLabelText(/click to clear/i))
 
