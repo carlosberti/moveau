@@ -29,7 +29,7 @@ export const Header = styled.header`
         width: 4rem;
         height: 1.6rem;
         display: inline-block;
-        margin-left: auto;
+        margin: 0 3rem 0 auto;
         position: relative;
         border-radius: 5rem;
         overflow: hidden;
