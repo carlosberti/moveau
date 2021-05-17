@@ -1,8 +1,11 @@
-# movieau
+# ![image](https://user-images.githubusercontent.com/22118601/118424506-bf44a600-b69d-11eb-8e36-ce9de7890ac4.png)
 
 > Simple movie manager
 
 A simple platform where you can search for movies, add it to favourites, to watch later and see informatiosn about it.
+
+![image](https://user-images.githubusercontent.com/22118601/118424621-ebf8bd80-b69d-11eb-9b28-a4979dbf796d.png)
+
 
 ## Project links
 
