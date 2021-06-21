@@ -9314,10 +9314,10 @@ next@10.2.3:
     vm-browserify "1.1.2"
     watchpack "2.1.1"
 
-nextjs-progressbar@^0.0.9:
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/nextjs-progressbar/-/nextjs-progressbar-0.0.9.tgz#ac0ae5734cde5806f6ffd6fbc18ac90178c4ba89"
-  integrity sha512-t7bsQOIE09lY25AL+zS3GMhSX4bCgdosuJ+1aG4EOpzHSAxY3zfY4PKncilWT5fdcbbyo/iM//KKN79psgpZXw==
+nextjs-progressbar@^0.0.11:
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/nextjs-progressbar/-/nextjs-progressbar-0.0.11.tgz#d8340e27f7f8cf8bca4b3ec187ebea40ea54297e"
+  integrity sha512-4JQkUHgDG6gz5r04lW06cMerKhQeXXq1RCSz2WqHMcJCDgKLCCqRokn603LlEORNpzBEY/pTZJIOlzf2eh4mFQ==
   dependencies:
     nprogress "^0.2.0"
 
